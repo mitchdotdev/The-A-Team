@@ -1,1 +1,1 @@
-# The-A-Team
+# The A* Team
