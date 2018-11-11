@@ -33,6 +33,9 @@ public:
     QWidget *home_page;
     QLabel *backgroundLogo_label;
     QPushButton *pushButton_viewConferences;
+    QPushButton *pushButton_1;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_2;
     QWidget *conferenceView_page;
     QTableView *tableView_conferences;
     QPushButton *pushButton_viewNFC;
@@ -87,6 +90,24 @@ public:
         pushButton_viewConferences->setFont(font);
         pushButton_viewConferences->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_viewConferences->setIconSize(QSize(100, 100));
+        pushButton_1 = new QPushButton(home_page);
+        pushButton_1->setObjectName(QStringLiteral("pushButton_1"));
+        pushButton_1->setGeometry(QRect(30, 130, 161, 41));
+        pushButton_1->setFont(font);
+        pushButton_1->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        pushButton_1->setIconSize(QSize(100, 100));
+        pushButton_3 = new QPushButton(home_page);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(30, 290, 161, 41));
+        pushButton_3->setFont(font);
+        pushButton_3->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        pushButton_3->setIconSize(QSize(100, 100));
+        pushButton_2 = new QPushButton(home_page);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(30, 210, 161, 41));
+        pushButton_2->setFont(font);
+        pushButton_2->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        pushButton_2->setIconSize(QSize(100, 100));
         stackedWidget->addWidget(home_page);
         conferenceView_page = new QWidget();
         conferenceView_page->setObjectName(QStringLiteral("conferenceView_page"));
@@ -194,7 +215,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -205,6 +226,9 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         backgroundLogo_label->setText(QString());
         pushButton_viewConferences->setText(QApplication::translate("MainWindow", "View Conferences", nullptr));
+        pushButton_1->setText(QString());
+        pushButton_3->setText(QString());
+        pushButton_2->setText(QString());
         pushButton_viewNFC->setText(QString());
         pushButton_viewAFC->setText(QString());
         label_conferences->setText(QApplication::translate("MainWindow", "CONFERENCES", nullptr));

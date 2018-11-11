@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <dbmanager.h>
-#include "querydb.h"
+#include "dbmanager.h"
+#include "conferenceview.h"
 
 namespace Ui {
 class MainWindow;
@@ -37,7 +37,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    queryDB dbQuery;
+    conferenceView dbQuery;
 };
 
 #endif // MAINWINDOW_H

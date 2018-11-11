@@ -4,8 +4,6 @@
 #include <QDebug>           /// For debug purposes (outputs to console)
 #include <QFile>            /// For reading in a file
 #include <QSqlRecord>       /// For SQL
-#include <QSqlQueryModel>   /// For QSqlQueryModel
-#include <QSqlQuery>        /// For QSqlQuery (query)
 #include <QVector>          /// class template that provides a dynamic array
 
 #include "constants.h"      /// constants header

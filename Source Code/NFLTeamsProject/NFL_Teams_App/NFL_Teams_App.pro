@@ -28,13 +28,13 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dbmanager.cpp \
-    querydb.cpp
+    conferenceView.cpp
 
 HEADERS += \
         mainwindow.h \
     constants.h \
     dbmanager.h \
-    querydb.h
+    conferenceview.h
 
 FORMS += \
         mainwindow.ui

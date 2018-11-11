@@ -6,6 +6,6 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-const QString DB_PATH = QDir::currentPath() + "/NFLDB.db";      /// DB PATH
+const QString DB_PATH = QDir::currentPath() + "/NFLDB.db";  // DB PATH
 
 #endif // CONSTANTS_H
