@@ -27,12 +27,14 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    dbmanager.cpp
+    dbmanager.cpp \
+    conferenceView.cpp
 
 HEADERS += \
         mainwindow.h \
     constants.h \
-    dbmanager.h
+    dbmanager.h \
+    conferenceview.h
 
 FORMS += \
         mainwindow.ui
@@ -43,5 +45,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc \
     resources.qrc
