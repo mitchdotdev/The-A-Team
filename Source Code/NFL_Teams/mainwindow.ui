@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1070</width>
-    <height>800</height>
+    <width>850</width>
+    <height>515</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,19 +20,25 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="sizePolicy">
     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>0</width>
-      <height>0</height>
+      <width>851</width>
+      <height>461</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -41,38 +47,365 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
-    <widget class="QWidget" name="home_page"/>
-    <widget class="QWidget" name="page_2"/>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="home_page">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QLabel" name="backgroundLogo_label">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>-10</y>
+        <width>451</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>:/files/images/NFLLogo.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignHCenter|Qt::AlignTop</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_viewConferences">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>50</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>View Conferences</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="conferenceView_page">
+     <widget class="QTableView" name="tableView_conferences">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>401</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_viewNFC">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>80</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>70</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(255, 255, 255, 0)</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normalon>:/files/images/NFCLogo.png</normalon>
+       </iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>90</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_viewAFC">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>80</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>70</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(255, 255, 255, 0)</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normalon>:/files/images/AFCLogo.png</normalon>
+       </iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_conferences">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>20</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>CONFERENCES</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_divisions">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>200</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>DIVISIONS</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_northDiv">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>260</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>43</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>NORTH</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_westDiv">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>360</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>43</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>WEST</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_southDiv">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>260</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>43</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>SOUTH</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_eastDiv">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>360</y>
+        <width>161</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>43</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>EAST</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_home">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>0</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <zorder>tableView_conferences</zorder>
+     <zorder>pushButton_viewAFC</zorder>
+     <zorder>pushButton_viewNFC</zorder>
+     <zorder>label_conferences</zorder>
+     <zorder>label_divisions</zorder>
+     <zorder>pushButton_northDiv</zorder>
+     <zorder>pushButton_westDiv</zorder>
+     <zorder>pushButton_southDiv</zorder>
+     <zorder>pushButton_eastDiv</zorder>
+     <zorder>pushButton_home</zorder>
+    </widget>
    </widget>
-   <widget class="QLabel" name="background_img">
+   <widget class="QLabel" name="backgroundField_label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>-30</y>
-      <width>1051</width>
-      <height>771</height>
+      <x>0</x>
+      <y>0</y>
+      <width>851</width>
+      <height>481</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/img/images/NFLLogo.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
+     <pixmap>:/files/images/NFLField.jpg</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
+   <zorder>backgroundField_label</zorder>
+   <zorder>stackedWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1070</width>
+     <width>850</width>
      <height>22</height>
     </rect>
    </property>
@@ -88,8 +421,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

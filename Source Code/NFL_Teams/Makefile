@@ -52,11 +52,13 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		mainwindow.cpp \
-		dbmanager.cpp qrc_resources.cpp \
+		dbmanager.cpp \
+		querydb.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dbmanager.o \
+		querydb.o \
 		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pre.prf \
@@ -227,9 +229,11 @@ DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pr
 		/Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/lex.prf \
 		NFL_Teams.pro mainwindow.h \
 		constants.h \
-		dbmanager.h main.cpp \
+		dbmanager.h \
+		querydb.h main.cpp \
 		mainwindow.cpp \
-		dbmanager.cpp
+		dbmanager.cpp \
+		querydb.cpp
 QMAKE_TARGET  = NFL_Teams
 DESTDIR       = 
 TARGET        = NFL_Teams.app/Contents/MacOS/NFL_Teams
@@ -624,10 +628,10 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents resources.qrc resources.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h querydb.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp querydb.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -651,17 +655,15 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all: qrc_resources.cpp qrc_resources.cpp
+compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
-	-$(DEL_FILE) qrc_resources.cpp qrc_resources.cpp
+	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: resources.qrc \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/bin/rcc \
-		images/NFLLogo.png
-	/Users/mitchellohair/Qt/5.11.2/clang_64/bin/rcc -name resources resources.qrc -o qrc_resources.cpp
-
-qrc_resources.cpp: resources.qrc \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/bin/rcc \
-		images/NFLLogo.png
+		images/NFLLogo.png \
+		images/NFCLogo.png \
+		images/NFLField.jpg \
+		images/AFCLogo.png
 	/Users/mitchellohair/Qt/5.11.2/clang_64/bin/rcc -name resources resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -695,6 +697,7 @@ moc_mainwindow.cpp: /Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framew
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		querydb.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/bin/moc
@@ -746,6 +749,7 @@ main.o: main.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		querydb.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -773,6 +777,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		querydb.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
@@ -797,6 +802,18 @@ dbmanager.o: dbmanager.cpp dbmanager.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o dbmanager.cpp
+
+querydb.o: querydb.cpp querydb.h \
+		constants.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QDir \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o querydb.o querydb.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp

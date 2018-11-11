@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/files">
         <file>images/NFLLogo.png</file>
+        <file>images/NFLField.jpg</file>
+        <file>images/AFCLogo.png</file>
+        <file>images/NFCLogo.png</file>
     </qresource>
 </RCC>
