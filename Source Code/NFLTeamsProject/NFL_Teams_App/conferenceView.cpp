@@ -1,6 +1,10 @@
 #include "conferenceview.h"
 
-conferenceView::conferenceView() { }
+conferenceView::conferenceView()
+{
+    this->conference = "";
+    this->division = "";
+}
 
 // Assigns conference to passed in QString
 void conferenceView::setConference(QString conference) { this->conference = conference; }
