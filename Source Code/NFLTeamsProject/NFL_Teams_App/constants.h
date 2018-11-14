@@ -4,8 +4,8 @@
 #include <QString>
 #include <QDebug>
 #include <QSqlQuery>
-#include <QSqlQueryModel>
+#include <QSqlTableModel>
 
-const QString DB_PATH = QDir::currentPath() + "/NFLDB.db";  // DB PATH
+const QString DB_PATH = QDir::currentPath() + "\\NFLDB.db";  // DB PATH
 
 #endif // CONSTANTS_H
