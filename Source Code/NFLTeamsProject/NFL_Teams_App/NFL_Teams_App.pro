@@ -28,7 +28,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dbmanager.cpp \
-    conferenceView.cpp
+    conferenceview.cpp
 
 HEADERS += \
         mainwindow.h \

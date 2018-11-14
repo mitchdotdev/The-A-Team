@@ -53,12 +53,12 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		mainwindow.cpp \
 		dbmanager.cpp \
-		conferenceView.cpp qrc_resources.cpp \
+		conferenceview.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dbmanager.o \
-		conferenceView.o \
+		conferenceview.o \
 		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pre.prf \
@@ -233,7 +233,7 @@ DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pr
 		conferenceview.h main.cpp \
 		mainwindow.cpp \
 		dbmanager.cpp \
-		conferenceView.cpp
+		conferenceview.cpp
 QMAKE_TARGET  = NFL_Teams
 DESTDIR       = 
 TARGET        = NFL_Teams.app/Contents/MacOS/NFL_Teams
@@ -631,7 +631,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp conferenceView.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp conferenceview.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -695,8 +695,10 @@ moc_mainwindow.cpp: /Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framew
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QSysInfo \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qsysinfo.h \
 		conferenceview.h \
 		mainwindow.h \
 		moc_predefs.h \
@@ -747,8 +749,10 @@ main.o: main.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QSysInfo \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qsysinfo.h \
 		conferenceview.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
@@ -775,8 +779,10 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QSysInfo \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qsysinfo.h \
 		conferenceview.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
@@ -799,11 +805,13 @@ dbmanager.o: dbmanager.cpp dbmanager.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QSysInfo \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qsysinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o dbmanager.cpp
 
-conferenceView.o: conferenceView.cpp conferenceview.h \
+conferenceview.o: conferenceview.cpp conferenceview.h \
 		constants.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
@@ -813,9 +821,11 @@ conferenceView.o: conferenceView.cpp conferenceview.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
-		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o conferenceView.o conferenceView.cpp
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QSysInfo \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qsysinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o conferenceview.o conferenceview.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
