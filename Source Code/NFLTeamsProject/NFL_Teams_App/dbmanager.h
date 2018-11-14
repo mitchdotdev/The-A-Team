@@ -20,6 +20,7 @@ public:
     void operator =(const dbmanager&) = delete;
     /// checks if database is open
     bool isOpen() const;
+    QSqlDatabase getDatabase() const;
 
 private:
      dbmanager();                   ///< Dbmanager constructor

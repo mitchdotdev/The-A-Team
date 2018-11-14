@@ -25,3 +25,8 @@ dbmanager& dbmanager::instance() {
     static dbmanager dmInstance;
     return dmInstance;
 }
+
+QSqlDatabase dbmanager::getDatabase() const
+{
+    return programDatabase;
+}

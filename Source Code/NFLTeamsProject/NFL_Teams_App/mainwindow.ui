@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>515</height>
+    <width>851</width>
+    <height>532</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -48,7 +48,7 @@
      </sizepolicy>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -91,7 +91,7 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
       </property>
       <property name="text">
        <string>View Conferences</string>
@@ -103,7 +103,7 @@
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_1">
+     <widget class="QPushButton" name="pushButton_Stadiums">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -114,14 +114,14 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
       </property>
       <property name="text">
-       <string/>
+       <string>View Stadiums</string>
       </property>
       <property name="iconSize">
        <size>
@@ -157,7 +157,7 @@
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButton_TeamInfo">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -168,14 +168,14 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
       </property>
       <property name="text">
-       <string/>
+       <string>View Team Info</string>
       </property>
       <property name="iconSize">
        <size>
@@ -458,6 +458,115 @@
      <zorder>pushButton_eastDiv</zorder>
      <zorder>pushButton_home</zorder>
     </widget>
+    <widget class="QWidget" name="stadium_page">
+     <widget class="QTableView" name="tableView_Stadiums">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>441</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectColumns</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_home_2">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>0</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="backgroundLogo_label_2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>-10</y>
+        <width>451</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/files/images/NFLLogo.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignHCenter|Qt::AlignTop</set>
+      </property>
+     </widget>
+     <zorder>backgroundLogo_label_2</zorder>
+     <zorder>tableView_Stadiums</zorder>
+     <zorder>pushButton_home_2</zorder>
+    </widget>
+    <widget class="QWidget" name="allTeamInfo_page">
+     <widget class="QComboBox" name="comboBox_teamDropdown">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableView_allTeamInfo">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>831</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectColumns</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_home_3">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>0</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QLabel" name="backgroundField_label">
     <property name="geometry">
@@ -486,8 +595,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>850</width>
-     <height>22</height>
+     <width>851</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
