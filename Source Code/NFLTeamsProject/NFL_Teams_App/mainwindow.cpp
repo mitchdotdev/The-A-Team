@@ -9,9 +9,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
     ui->stackedWidget->currentWidget()->setWindowOpacity(0);
     numberOfTeams = 0;
+    allTeamInfoTable = nullptr;
+    stadiumsTable = nullptr;
+    teamInfoTableMethod = { -1, Qt::SortOrder::DescendingOrder };
+    stadiumTableMethod = { -1, Qt::SortOrder::DescendingOrder };
 }
 
-MainWindow::~MainWindow() { delete ui; }
+MainWindow::~MainWindow()
+{
+    freeAllocatedMemory(allTeamInfoTable);
+    freeAllocatedMemory(stadiumsTable);
+    delete ui;
+}
 
 // Goes to view conferences page
 void MainWindow::on_pushButton_viewConferences_clicked() { ui->stackedWidget->setCurrentIndex(1); }
@@ -70,7 +79,7 @@ void MainWindow::on_pushButton_Stadiums_clicked()
     QSqlTableModel *stadiumsTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
 
     stadiumsTable->setTable("TeamInfo");
-    stadiumsTable->setSort(1, Qt::SortOrder::AscendingOrder);
+    stadiumsTable->setSort(0, Qt::SortOrder::AscendingOrder);
     stadiumsTable->select();
 
     ui->tableView_Stadiums->setModel(stadiumsTable);
@@ -80,7 +89,7 @@ void MainWindow::on_pushButton_Stadiums_clicked()
     ui->tableView_Stadiums->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView_Stadiums->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView_Stadiums->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    ui->tableView_Stadiums->horizontalHeader()->swapSections(1, 0);
+    //ui->tableView_Stadiums->horizontalHeader()->swapSections(1, 0);
 }
 
 void MainWindow::on_pushButton_home_2_clicked() { ui->stackedWidget->setCurrentIndex(0); }
@@ -140,5 +149,51 @@ void MainWindow::populateAllTeamInfo(const QString &selectedTeam)
 void MainWindow::on_comboBox_teamDropdown_currentIndexChanged(const QString &arg1)
 {
     if (ui->comboBox_teamDropdown->count() >= numberOfTeams)
-        populateAllTeamInfo(ui->comboBox_teamDropdown->currentText());
+        populateAllTeamInfo(arg1);
+}
+
+template <class Type>
+void MainWindow::freeAllocatedMemory(Type *pointer)
+{
+    if (pointer != nullptr)
+        delete pointer;
+}
+
+void MainWindow::on_tableView_allTeamInfo_clicked(const QModelIndex &index)
+{
+    if (teamInfoTableMethod.column == index.column())
+    {
+        if (teamInfoTableMethod.sort == Qt::SortOrder::AscendingOrder)
+            teamInfoTableMethod.sort = Qt::SortOrder::DescendingOrder;
+        else
+            teamInfoTableMethod.sort = Qt::SortOrder::AscendingOrder;
+    }
+
+    else
+    {
+        teamInfoTableMethod.column = index.column();
+        teamInfoTableMethod.sort = Qt::SortOrder::AscendingOrder;
+    }
+
+
+    ui->tableView_allTeamInfo->sortByColumn(teamInfoTableMethod.column, teamInfoTableMethod.sort);
+}
+
+void MainWindow::on_tableView_Stadiums_clicked(const QModelIndex &index)
+{
+    if (stadiumTableMethod.column == index.column())
+    {
+        if (stadiumTableMethod.sort == Qt::SortOrder::AscendingOrder)
+            stadiumTableMethod.sort = Qt::SortOrder::DescendingOrder;
+        else
+            stadiumTableMethod.sort = Qt::SortOrder::AscendingOrder;
+    }
+
+    else
+    {
+        stadiumTableMethod.column = index.column();
+        stadiumTableMethod.sort = Qt::SortOrder::AscendingOrder;
+    }
+
+    ui->tableView_Stadiums->sortByColumn(stadiumTableMethod.column, stadiumTableMethod.sort);
 }

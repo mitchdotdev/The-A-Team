@@ -474,6 +474,9 @@
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectColumns</enum>
       </property>
@@ -526,7 +529,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>121</width>
+        <width>141</width>
         <height>21</height>
        </rect>
       </property>
@@ -545,6 +548,9 @@
       </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectColumns</enum>
