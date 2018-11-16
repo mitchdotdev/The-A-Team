@@ -65,7 +65,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(851, 532);
+        MainWindow->resize(851, 540);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -102,9 +102,7 @@ public:
         pushButton_Stadiums = new QPushButton(home_page);
         pushButton_Stadiums->setObjectName(QStringLiteral("pushButton_Stadiums"));
         pushButton_Stadiums->setGeometry(QRect(30, 130, 161, 41));
-        QFont font1;
-        font1.setPointSize(14);
-        pushButton_Stadiums->setFont(font1);
+        pushButton_Stadiums->setFont(font);
         pushButton_Stadiums->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
         pushButton_Stadiums->setIconSize(QSize(100, 100));
         pushButton_3 = new QPushButton(home_page);
@@ -116,7 +114,7 @@ public:
         pushButton_TeamInfo = new QPushButton(home_page);
         pushButton_TeamInfo->setObjectName(QStringLiteral("pushButton_TeamInfo"));
         pushButton_TeamInfo->setGeometry(QRect(30, 210, 161, 41));
-        pushButton_TeamInfo->setFont(font1);
+        pushButton_TeamInfo->setFont(font);
         pushButton_TeamInfo->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
         pushButton_TeamInfo->setIconSize(QSize(100, 100));
         stackedWidget->addWidget(home_page);
@@ -129,9 +127,9 @@ public:
         pushButton_viewNFC = new QPushButton(conferenceView_page);
         pushButton_viewNFC->setObjectName(QStringLiteral("pushButton_viewNFC"));
         pushButton_viewNFC->setGeometry(QRect(650, 80, 161, 91));
-        QFont font2;
-        font2.setPointSize(70);
-        pushButton_viewNFC->setFont(font2);
+        QFont font1;
+        font1.setPointSize(70);
+        pushButton_viewNFC->setFont(font1);
         pushButton_viewNFC->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0)"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/files/images/NFCLogo.png"), QSize(), QIcon::Normal, QIcon::On);
@@ -142,7 +140,7 @@ public:
         pushButton_viewAFC = new QPushButton(conferenceView_page);
         pushButton_viewAFC->setObjectName(QStringLiteral("pushButton_viewAFC"));
         pushButton_viewAFC->setGeometry(QRect(450, 80, 161, 91));
-        pushButton_viewAFC->setFont(font2);
+        pushButton_viewAFC->setFont(font1);
         pushButton_viewAFC->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0)"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/files/images/AFCLogo.png"), QSize(), QIcon::Normal, QIcon::On);
@@ -153,41 +151,41 @@ public:
         label_conferences = new QLabel(conferenceView_page);
         label_conferences->setObjectName(QStringLiteral("label_conferences"));
         label_conferences->setGeometry(QRect(540, 20, 181, 41));
-        QFont font3;
-        font3.setPointSize(20);
-        label_conferences->setFont(font3);
+        QFont font2;
+        font2.setPointSize(20);
+        label_conferences->setFont(font2);
         label_conferences->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_conferences->setAlignment(Qt::AlignCenter);
         label_divisions = new QLabel(conferenceView_page);
         label_divisions->setObjectName(QStringLiteral("label_divisions"));
         label_divisions->setGeometry(QRect(540, 200, 181, 41));
-        label_divisions->setFont(font3);
+        label_divisions->setFont(font2);
         label_divisions->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_divisions->setAlignment(Qt::AlignCenter);
         pushButton_northDiv = new QPushButton(conferenceView_page);
         pushButton_northDiv->setObjectName(QStringLiteral("pushButton_northDiv"));
         pushButton_northDiv->setGeometry(QRect(450, 260, 161, 91));
-        QFont font4;
-        font4.setPointSize(43);
-        pushButton_northDiv->setFont(font4);
+        QFont font3;
+        font3.setPointSize(43);
+        pushButton_northDiv->setFont(font3);
         pushButton_northDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_northDiv->setIconSize(QSize(100, 100));
         pushButton_westDiv = new QPushButton(conferenceView_page);
         pushButton_westDiv->setObjectName(QStringLiteral("pushButton_westDiv"));
         pushButton_westDiv->setGeometry(QRect(650, 360, 161, 91));
-        pushButton_westDiv->setFont(font4);
+        pushButton_westDiv->setFont(font3);
         pushButton_westDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_westDiv->setIconSize(QSize(100, 100));
         pushButton_southDiv = new QPushButton(conferenceView_page);
         pushButton_southDiv->setObjectName(QStringLiteral("pushButton_southDiv"));
         pushButton_southDiv->setGeometry(QRect(650, 260, 161, 91));
-        pushButton_southDiv->setFont(font4);
+        pushButton_southDiv->setFont(font3);
         pushButton_southDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_southDiv->setIconSize(QSize(100, 100));
         pushButton_eastDiv = new QPushButton(conferenceView_page);
         pushButton_eastDiv->setObjectName(QStringLiteral("pushButton_eastDiv"));
         pushButton_eastDiv->setGeometry(QRect(450, 360, 161, 91));
-        pushButton_eastDiv->setFont(font4);
+        pushButton_eastDiv->setFont(font3);
         pushButton_eastDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_eastDiv->setIconSize(QSize(100, 100));
         pushButton_home = new QPushButton(conferenceView_page);
@@ -255,7 +253,7 @@ public:
         stackedWidget->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 851, 21));
+        menuBar->setGeometry(QRect(0, 0, 851, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -266,7 +264,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
