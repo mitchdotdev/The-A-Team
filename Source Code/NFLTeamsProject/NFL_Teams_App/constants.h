@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include <QSqlTableModel>
 #include <QSysInfo>
+#include <QMessageBox>
 
 #define Path (QSysInfo::kernelType() == "winnt" ? "\\NFLDB.db" : "/NFLDB.db")
 
