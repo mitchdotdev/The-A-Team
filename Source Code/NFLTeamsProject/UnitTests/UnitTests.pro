@@ -13,8 +13,12 @@ TEMPLATE = app
 SOURCES += \ 
     tst_conferencepage.cpp \
     dbmanager.cpp \
-    conferenceview.cpp
+    conferenceview.cpp \
+    tst_stadiumpage.cpp \
+    maintest.cpp
 
 HEADERS += \
     dbmanager.h \
-    conferenceview.h
+    conferenceview.h \
+    tst_conferencepage.h \
+    tst_stadiumpage.h

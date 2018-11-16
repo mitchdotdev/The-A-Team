@@ -6,4 +6,3 @@
 TEMPLATE = subdirs
 SUBDIRS += NFL_Teams_App \
     UnitTests
-
