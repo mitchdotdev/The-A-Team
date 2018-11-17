@@ -15,10 +15,12 @@ SOURCES += \
     dbmanager.cpp \
     conferenceview.cpp \
     tst_stadiumpage.cpp \
+    #mainwindow.cpp \
     maintest.cpp
 
 HEADERS += \
     dbmanager.h \
     conferenceview.h \
     tst_conferencepage.h \
-    tst_stadiumpage.h
+    tst_stadiumpage.h #\
+    #mainwindow.h

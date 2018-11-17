@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>851</width>
-    <height>540</height>
+    <width>1032</width>
+    <height>704</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,18 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1032</width>
+    <height>704</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1032</width>
+    <height>704</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -37,8 +49,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>851</width>
-      <height>461</height>
+      <width>1032</width>
+      <height>704</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -47,8 +59,20 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>1032</width>
+      <height>704</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1032</width>
+      <height>704</height>
+     </size>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -57,10 +81,10 @@
      <widget class="QLabel" name="backgroundLogo_label">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>-10</y>
-        <width>451</width>
-        <height>471</height>
+        <x>490</x>
+        <y>50</y>
+        <width>531</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="text">
@@ -79,10 +103,10 @@
      <widget class="QPushButton" name="pushButton_viewConferences">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>50</y>
-        <width>161</width>
-        <height>41</height>
+        <x>90</x>
+        <y>120</y>
+        <width>201</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -106,10 +130,10 @@
      <widget class="QPushButton" name="pushButton_Stadiums">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>130</y>
-        <width>161</width>
-        <height>41</height>
+        <x>90</x>
+        <y>220</y>
+        <width>201</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -133,10 +157,10 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>290</y>
-        <width>161</width>
-        <height>41</height>
+        <x>90</x>
+        <y>420</y>
+        <width>201</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -160,10 +184,10 @@
      <widget class="QPushButton" name="pushButton_TeamInfo">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>210</y>
-        <width>161</width>
-        <height>41</height>
+        <x>90</x>
+        <y>320</y>
+        <width>201</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -191,19 +215,25 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>401</width>
-        <height>441</height>
+        <width>481</width>
+        <height>631</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_viewNFC">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>80</y>
+        <x>810</x>
+        <y>130</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -240,8 +270,8 @@
      <widget class="QPushButton" name="pushButton_viewAFC">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>80</y>
+        <x>590</x>
+        <y>130</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -278,8 +308,8 @@
      <widget class="QLabel" name="label_conferences">
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>20</y>
+        <x>690</x>
+        <y>50</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -302,8 +332,8 @@
      <widget class="QLabel" name="label_divisions">
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>200</y>
+        <x>690</x>
+        <y>260</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -326,8 +356,8 @@
      <widget class="QPushButton" name="pushButton_northDiv">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>260</y>
+        <x>590</x>
+        <y>340</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -353,8 +383,8 @@
      <widget class="QPushButton" name="pushButton_westDiv">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>360</y>
+        <x>810</x>
+        <y>460</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -380,8 +410,8 @@
      <widget class="QPushButton" name="pushButton_southDiv">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>260</y>
+        <x>810</x>
+        <y>340</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -407,8 +437,8 @@
      <widget class="QPushButton" name="pushButton_eastDiv">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>360</y>
+        <x>590</x>
+        <y>460</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -434,7 +464,7 @@
      <widget class="QPushButton" name="pushButton_home">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>940</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -464,8 +494,8 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>441</width>
-        <height>441</height>
+        <width>461</width>
+        <height>631</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -480,11 +510,14 @@
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectColumns</enum>
       </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_home_2">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>940</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -500,10 +533,10 @@
      <widget class="QLabel" name="backgroundLogo_label_2">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>-10</y>
-        <width>451</width>
-        <height>471</height>
+        <x>490</x>
+        <y>50</y>
+        <width>531</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="text">
@@ -519,9 +552,6 @@
        <set>Qt::AlignHCenter|Qt::AlignTop</set>
       </property>
      </widget>
-     <zorder>backgroundLogo_label_2</zorder>
-     <zorder>tableView_Stadiums</zorder>
-     <zorder>pushButton_home_2</zorder>
     </widget>
     <widget class="QWidget" name="allTeamInfo_page">
      <widget class="QComboBox" name="comboBox_teamDropdown">
@@ -529,37 +559,43 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>141</width>
+        <width>211</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: black</string>
       </property>
      </widget>
      <widget class="QTableView" name="tableView_allTeamInfo">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>40</y>
-        <width>831</width>
-        <height>411</height>
+        <width>1031</width>
+        <height>531</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
       <property name="editTriggers">
-       <set>QAbstractItemView::NoEditTriggers</set>
+       <set>QAbstractItemView::DoubleClicked</set>
       </property>
       <property name="selectionMode">
        <enum>QAbstractItemView::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectColumns</enum>
+       <enum>QAbstractItemView::SelectItems</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_home_3">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>940</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -572,6 +608,30 @@
        <string>HOME</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_currItem">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>580</y>
+        <width>291</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="backgroundField_label">
@@ -579,15 +639,30 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>851</width>
-      <height>481</height>
+      <width>1032</width>
+      <height>704</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1032</width>
+      <height>704</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1032</width>
+      <height>704</height>
+     </size>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
      <pixmap resource="resources.qrc">:/files/images/NFLField.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -601,7 +676,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>851</width>
+     <width>1032</width>
      <height>22</height>
     </rect>
    </property>

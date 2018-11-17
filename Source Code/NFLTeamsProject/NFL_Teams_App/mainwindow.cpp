@@ -89,7 +89,6 @@ void MainWindow::on_pushButton_Stadiums_clicked()
     ui->tableView_Stadiums->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableView_Stadiums->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView_Stadiums->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-    //ui->tableView_Stadiums->horizontalHeader()->swapSections(1, 0);
 }
 
 void MainWindow::on_pushButton_home_2_clicked() { ui->stackedWidget->setCurrentIndex(0); }
@@ -124,10 +123,16 @@ void MainWindow::populateTeamDropdown()
 void MainWindow::populateAllTeamInfo(const QString &selectedTeam)
 {
     ui->stackedWidget->setCurrentIndex(3);
+    ui->label_currItem->hide();
 
     QSqlTableModel *allTeamInfoTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
 
     allTeamInfoTable->setTable("TeamInfo");
+    allTeamInfoTable->setHeaderData(0, Qt::Horizontal, QObject::tr("Team"));
+    allTeamInfoTable->setHeaderData(1, Qt::Horizontal, QObject::tr("Stadium"));
+    allTeamInfoTable->setHeaderData(2, Qt::Horizontal, QObject::tr("Capacity"));
+    allTeamInfoTable->setHeaderData(6, Qt::Horizontal, QObject::tr("Surface"));
+    allTeamInfoTable->setHeaderData(7, Qt::Horizontal, QObject::tr("Roof"));
 
     if (selectedTeam != "All Teams")
         allTeamInfoTable->setFilter("TeamName=\""+selectedTeam+"\"");
@@ -159,7 +164,7 @@ void MainWindow::freeAllocatedMemory(Type *pointer)
         delete pointer;
 }
 
-void MainWindow::on_tableView_allTeamInfo_clicked(const QModelIndex &index)
+void MainWindow::on_tableView_allTeamInfo_doubleClicked(const QModelIndex &index)
 {
     if (teamInfoTableMethod.column == index.column())
     {
@@ -179,7 +184,7 @@ void MainWindow::on_tableView_allTeamInfo_clicked(const QModelIndex &index)
     ui->tableView_allTeamInfo->sortByColumn(teamInfoTableMethod.column, teamInfoTableMethod.sort);
 }
 
-void MainWindow::on_tableView_Stadiums_clicked(const QModelIndex &index)
+void MainWindow::on_tableView_Stadiums_doubleClicked(const QModelIndex &index)
 {
     if (stadiumTableMethod.column == index.column())
     {
@@ -196,4 +201,10 @@ void MainWindow::on_tableView_Stadiums_clicked(const QModelIndex &index)
     }
 
     ui->tableView_Stadiums->sortByColumn(stadiumTableMethod.column, stadiumTableMethod.sort);
+}
+
+void MainWindow::on_tableView_allTeamInfo_clicked(const QModelIndex &index)
+{
+    ui->label_currItem->show();
+    ui->label_currItem->setText(index.data(Qt::DisplayRole).toString());
 }

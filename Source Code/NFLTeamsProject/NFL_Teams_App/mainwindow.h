@@ -37,8 +37,9 @@ private slots:
     void on_pushButton_home_3_clicked();
     void on_pushButton_TeamInfo_clicked();
     void on_comboBox_teamDropdown_currentIndexChanged(const QString &arg1);
+    void on_tableView_allTeamInfo_doubleClicked(const QModelIndex &index);
+    void on_tableView_Stadiums_doubleClicked(const QModelIndex &index);
     void on_tableView_allTeamInfo_clicked(const QModelIndex &index);
-    void on_tableView_Stadiums_clicked(const QModelIndex &index);
 
 private:
     void populateTeamDropdown();
