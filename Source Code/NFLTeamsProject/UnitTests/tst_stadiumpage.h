@@ -1,7 +1,6 @@
 #ifndef TST_STADIUMPAGE_H
 #define TST_STADIUMPAGE_H
 #include <QtTest>
-//#include "../NFL_Teams_App/mainwindow.h"
 
 class StadiumPage : public QObject
 {
