@@ -9,4 +9,5 @@ int main()
     StadiumPage stadiumTest;
     QTest::qExec(&stadiumTest);
 
+    return 0;
 }
