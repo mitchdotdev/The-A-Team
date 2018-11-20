@@ -162,57 +162,10 @@ void MainWindow::on_comboBox_teamDropdown_currentIndexChanged(const QString &arg
         populateAllTeamInfo(arg1);
 }
 
-template <class Type>
-void MainWindow::freeAllocatedMemory(Type *pointer)
-{
-    if (pointer != nullptr)
-        delete pointer;
-}
-
-void MainWindow::on_tableView_allTeamInfo_clicked(const QModelIndex &index)
-{
-    if (teamInfoTableMethod.column == index.column())
-    {
-        if (teamInfoTableMethod.sort == Qt::SortOrder::AscendingOrder)
-            teamInfoTableMethod.sort = Qt::SortOrder::DescendingOrder;
-        else
-            teamInfoTableMethod.sort = Qt::SortOrder::AscendingOrder;
-    }
-
-    else
-    {
-        teamInfoTableMethod.column = index.column();
-        teamInfoTableMethod.sort = Qt::SortOrder::AscendingOrder;
-    }
-
-
-    ui->tableView_allTeamInfo->sortByColumn(teamInfoTableMethod.column, teamInfoTableMethod.sort);
-}
-
-void MainWindow::on_tableView_Stadiums_clicked(const QModelIndex &index)
-{
-    if (stadiumTableMethod.column == index.column())
-    {
-        if (stadiumTableMethod.sort == Qt::SortOrder::AscendingOrder)
-            stadiumTableMethod.sort = Qt::SortOrder::DescendingOrder;
-        else
-            stadiumTableMethod.sort = Qt::SortOrder::AscendingOrder;
-    }
-
-    else
-    {
-        stadiumTableMethod.column = index.column();
-        stadiumTableMethod.sort = Qt::SortOrder::AscendingOrder;
-    }
-
-    ui->tableView_Stadiums->sortByColumn(stadiumTableMethod.column, stadiumTableMethod.sort);
-}
-
 void MainWindow::on_pushButton_advancedQuery_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
     setUpAdvancedQuery();
-
 }
 
 void MainWindow::setUpAdvancedQuery()
@@ -260,16 +213,11 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
     QStringList checkedData;
 
     for (int i = 0; i < ui->listWidget_AdvancedQueryCriteria->model()->rowCount(); i++)
-    {
         if (ui->listWidget_AdvancedQueryCriteria->item(i)->checkState())
             checkedData.append(ui->listWidget_AdvancedQueryCriteria->item(i)->text());
-    }
 
     if (checkedData.size() <= 0)
-    {
-        //QMessageBox::warning(this, "Error", "Please Select At Least One Criterion!");
-    }
-
+        QMessageBox::warning(this, "Error", "Please Select At Least One Criterion!");
     else
     {
         ui->stackedWidget->setCurrentIndex(5);
@@ -298,5 +246,3 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
         ui->tableView_advancedQueryResults->setSortingEnabled(true);
     }
 }
-
-

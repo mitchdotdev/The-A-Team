@@ -1,6 +1,7 @@
 #ifndef CONFERENCEVIEW_H
 #define CONFERENCEVIEW_H
-#include "constants.h"
+#include <QSqlQuery>
+#include <QSqlQueryModel>
 
 class conferenceView
 {

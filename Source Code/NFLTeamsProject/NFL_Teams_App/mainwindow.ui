@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>851</width>
-    <height>540</height>
+    <width>1196</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,18 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1196</width>
+    <height>732</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1196</width>
+    <height>732</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -37,8 +49,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>851</width>
-      <height>461</height>
+      <width>1196</width>
+      <height>732</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -47,8 +59,20 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>1196</width>
+      <height>732</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1196</width>
+      <height>732</height>
+     </size>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -57,8 +81,8 @@
      <widget class="QLabel" name="backgroundLogo_label">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>-10</y>
+        <x>710</x>
+        <y>100</y>
         <width>451</width>
         <height>471</height>
        </rect>
@@ -73,16 +97,16 @@
        <bool>true</bool>
       </property>
       <property name="alignment">
-       <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_viewConferences">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>50</y>
-        <width>161</width>
-        <height>41</height>
+        <x>110</x>
+        <y>120</y>
+        <width>200</width>
+        <height>60</height>
        </rect>
       </property>
       <property name="font">
@@ -106,10 +130,10 @@
      <widget class="QPushButton" name="pushButton_Stadiums">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>130</y>
-        <width>161</width>
-        <height>41</height>
+        <x>110</x>
+        <y>240</y>
+        <width>200</width>
+        <height>60</height>
        </rect>
       </property>
       <property name="font">
@@ -133,10 +157,10 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>290</y>
-        <width>161</width>
-        <height>41</height>
+        <x>110</x>
+        <y>480</y>
+        <width>200</width>
+        <height>60</height>
        </rect>
       </property>
       <property name="font">
@@ -160,10 +184,10 @@
      <widget class="QPushButton" name="pushButton_TeamInfo">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>210</y>
-        <width>161</width>
-        <height>41</height>
+        <x>110</x>
+        <y>360</y>
+        <width>200</width>
+        <height>60</height>
        </rect>
       </property>
       <property name="font">
@@ -191,19 +215,28 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>401</width>
-        <height>441</height>
+        <width>491</width>
+        <height>661</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_viewNFC">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>80</y>
+        <x>950</x>
+        <y>190</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -240,8 +273,8 @@
      <widget class="QPushButton" name="pushButton_viewAFC">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>80</y>
+        <x>750</x>
+        <y>190</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -278,8 +311,8 @@
      <widget class="QLabel" name="label_conferences">
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>20</y>
+        <x>840</x>
+        <y>120</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -302,8 +335,8 @@
      <widget class="QLabel" name="label_divisions">
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>200</y>
+        <x>840</x>
+        <y>330</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -326,8 +359,8 @@
      <widget class="QPushButton" name="pushButton_northDiv">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>260</y>
+        <x>750</x>
+        <y>400</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -353,8 +386,8 @@
      <widget class="QPushButton" name="pushButton_westDiv">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>360</y>
+        <x>950</x>
+        <y>540</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -380,8 +413,8 @@
      <widget class="QPushButton" name="pushButton_southDiv">
       <property name="geometry">
        <rect>
-        <x>650</x>
-        <y>260</y>
+        <x>950</x>
+        <y>400</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -407,8 +440,8 @@
      <widget class="QPushButton" name="pushButton_eastDiv">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>360</y>
+        <x>750</x>
+        <y>540</y>
         <width>161</width>
         <height>91</height>
        </rect>
@@ -434,7 +467,7 @@
      <widget class="QPushButton" name="pushButton_home">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>1110</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -464,8 +497,8 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>441</width>
-        <height>441</height>
+        <width>651</width>
+        <height>661</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -480,11 +513,14 @@
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectColumns</enum>
       </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_home_2">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>1110</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -500,8 +536,8 @@
      <widget class="QLabel" name="backgroundLogo_label_2">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>-10</y>
+        <x>710</x>
+        <y>100</y>
         <width>451</width>
         <height>471</height>
        </rect>
@@ -529,7 +565,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>141</width>
+        <width>231</width>
         <height>21</height>
        </rect>
       </property>
@@ -542,8 +578,8 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>831</width>
-        <height>411</height>
+        <width>1181</width>
+        <height>631</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -558,11 +594,17 @@
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectColumns</enum>
       </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::SolidLine</enum>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_home_3">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>1110</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -578,7 +620,7 @@
      <widget class="QPushButton" name="pushButton_advancedQuery">
       <property name="geometry">
        <rect>
-        <x>610</x>
+        <x>960</x>
         <y>0</y>
         <width>141</width>
         <height>31</height>
@@ -596,7 +638,7 @@
      <widget class="QPushButton" name="pushButton_home_4">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>1110</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -612,8 +654,8 @@
      <widget class="QLabel" name="backgroundLogo_label_3">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>-10</y>
+        <x>710</x>
+        <y>100</y>
         <width>451</width>
         <height>471</height>
        </rect>
@@ -634,10 +676,10 @@
      <widget class="QComboBox" name="comboBox_AdvancedQuery">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>50</y>
-        <width>181</width>
-        <height>22</height>
+        <x>30</x>
+        <y>90</y>
+        <width>171</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -653,10 +695,10 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>20</y>
-        <width>241</width>
-        <height>21</height>
+        <x>30</x>
+        <y>40</y>
+        <width>171</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
@@ -677,10 +719,10 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>90</y>
-        <width>241</width>
-        <height>21</height>
+        <x>30</x>
+        <y>130</y>
+        <width>391</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
@@ -701,10 +743,10 @@
      <widget class="QListWidget" name="listWidget_AdvancedQueryCriteria">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>120</y>
-        <width>241</width>
-        <height>281</height>
+        <x>30</x>
+        <y>170</y>
+        <width>391</width>
+        <height>421</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -717,8 +759,8 @@
      <widget class="QPushButton" name="pushButton_QuerySelection">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>410</y>
+        <x>340</x>
+        <y>610</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -742,7 +784,7 @@
      <widget class="QPushButton" name="pushButton_home_5">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>1110</x>
         <y>0</y>
         <width>91</width>
         <height>31</height>
@@ -760,8 +802,8 @@
        <rect>
         <x>10</x>
         <y>40</y>
-        <width>831</width>
-        <height>411</height>
+        <width>1181</width>
+        <height>641</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -776,11 +818,14 @@
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectColumns</enum>
       </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_back">
       <property name="geometry">
        <rect>
-        <x>650</x>
+        <x>0</x>
         <y>0</y>
         <width>101</width>
         <height>31</height>
@@ -790,7 +835,7 @@
        <string notr="true">background: rgba(0, 0, 0, 127)</string>
       </property>
       <property name="text">
-       <string>Back</string>
+       <string>BACK</string>
       </property>
      </widget>
     </widget>
@@ -800,15 +845,30 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>851</width>
-      <height>481</height>
+      <width>1196</width>
+      <height>732</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1196</width>
+      <height>732</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1196</width>
+      <height>732</height>
+     </size>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
      <pixmap resource="resources.qrc">:/files/images/NFLField.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
     <property name="alignment">
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -822,7 +882,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>851</width>
+     <width>1196</width>
      <height>22</height>
     </rect>
    </property>
