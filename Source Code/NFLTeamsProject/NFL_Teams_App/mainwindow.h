@@ -5,6 +5,7 @@
 #include <QSqlTableModel>
 #include "dbmanager.h"
 #include "conferenceview.h"
+#include "graph.h"
 
 struct CurrentSortMethod
 {
@@ -58,6 +59,7 @@ private slots:
     void on_pushButton_back_clicked();
     void on_pushButton_home_5_clicked();
     void on_pushButton_QuerySelection_clicked();
+    void on_pushButton_3_clicked();
 };
 template <class Type>
 void MainWindow::freeAllocatedMemory(Type *pointer)

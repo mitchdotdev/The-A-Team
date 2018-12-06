@@ -246,3 +246,30 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
         ui->tableView_advancedQueryResults->setSortingEnabled(true);
     }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QSqlQuery query;
+    query.exec("SELECT DISTINCT BeginningStadium "
+               "FROM Distances");
+
+    QVector<QString> vertices;
+    while(query.next())
+        vertices.push_back(query.value(0).toString());
+
+    // Creates graph object with the size of the vertices
+    Graph<QString, int> g(vertices.size());
+
+    // Populates the graphs vertices
+    for(int i = 0; i < vertices.size(); ++i)
+        g.addVertex(new Vertex<QString>(vertices.at(i)));
+
+    query.exec("SELECT DISTINCT BeginningStadium, EndingStadium, Distance "
+               "FROM Distances");
+
+    while(query.next())
+        g.addEdge(new Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
+
+    g.dijkstra(g.findVertexPosition("Heinz Field"));
+    g.primMST();
+}

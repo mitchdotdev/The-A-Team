@@ -72,7 +72,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -157,8 +157,8 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>480</y>
+        <x>580</x>
+        <y>30</y>
         <width>200</width>
         <height>60</height>
        </rect>
@@ -172,7 +172,7 @@
        <string notr="true">background: rgba(0, 0, 0, 127)</string>
       </property>
       <property name="text">
-       <string/>
+       <string>Dijkstra/MST ?</string>
       </property>
       <property name="iconSize">
        <size>

@@ -230,7 +230,8 @@ DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pr
 		NFL_Teams_App.pro mainwindow.h \
 		constants.h \
 		dbmanager.h \
-		conferenceview.h main.cpp \
+		conferenceview.h \
+		graph.h main.cpp \
 		mainwindow.cpp \
 		dbmanager.cpp \
 		conferenceview.cpp
@@ -630,7 +631,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h graph.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp conferenceview.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
@@ -702,6 +703,7 @@ moc_mainwindow.cpp: /Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framew
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		graph.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/bin/moc
@@ -758,6 +760,7 @@ main.o: main.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		graph.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -790,6 +793,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		graph.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 

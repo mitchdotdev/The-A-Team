@@ -6,8 +6,8 @@ int main()
     ConferencePage conferenceTest;
     QTest::qExec(&conferenceTest);
 
-    StadiumPage stadiumTest;
-    QTest::qExec(&stadiumTest);
+//    StadiumPage stadiumTest;
+//    QTest::qExec(&stadiumTest);
 
     return 0;
 }

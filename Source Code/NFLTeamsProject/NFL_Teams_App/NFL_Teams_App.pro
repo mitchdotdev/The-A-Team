@@ -34,7 +34,8 @@ HEADERS += \
         mainwindow.h \
     constants.h \
     dbmanager.h \
-    conferenceview.h
+    conferenceview.h \
+    graph.h
 
 FORMS += \
         mainwindow.ui
