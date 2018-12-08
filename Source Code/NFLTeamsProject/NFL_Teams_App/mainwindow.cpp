@@ -101,6 +101,8 @@ void MainWindow::on_pushButton_TeamInfo_clicked()
 {
     populateTeamDropdown();
     populateAllTeamInfo("All Teams");
+    ui->comboBox_SouvenirDropDown->hide();
+    ui->label_sortBy->hide();
 }
 
 void MainWindow::populateTeamDropdown()
@@ -150,6 +152,8 @@ void MainWindow::populateAllTeamInfo(const QString &selectedTeam)
 
 void MainWindow::on_comboBox_teamDropdown_currentIndexChanged(const QString &arg1)
 {
+    ui->comboBox_SouvenirDropDown->hide();
+    ui->label_sortBy->hide();
     if (ui->comboBox_teamDropdown->count() >= numberOfTeams)
         populateAllTeamInfo(arg1);
 }
@@ -355,4 +359,39 @@ void MainWindow::on_listWidget_stopList_itemClicked(QListWidgetItem *item)
         ui->listWidget_stopList->currentItem()->setText(item->text().remove(" ✓", Qt::CaseSensitivity::CaseInsensitive));
     else
         ui->listWidget_stopList->currentItem()->setText(item->text().append(+ " ✓"));
+}
+
+void MainWindow::on_pushButton_SouvenirList_clicked()
+{
+    ui->comboBox_SouvenirDropDown->show();
+    ui->label_sortBy->show();
+    QSqlQuery query;
+    QSqlQuery query1;
+    numberOfColumns = 0;
+
+    ui->comboBox_AdvancedQuery->clear();
+    query.exec("SELECT DISTINCT TeamName FROM SouvenirList");
+
+    while (query.next())
+    {
+        ui->comboBox_SouvenirDropDown->addItem(query.value(0).toString());
+    }
+    query1.prepare("SELECT Souvenir, Price FROM SouvenirList WHERE TeamName = :TeamName");
+    query1.bindValue(":TeamName", "Arizona Cardinals");
+    query1.exec();
+    QSqlQueryModel* model = new QSqlQueryModel;
+    model->setQuery(query1);
+    ui->tableView_allTeamInfo->setModel(model);
+}
+
+void MainWindow::on_comboBox_SouvenirDropDown_currentIndexChanged(const QString &arg1)
+{
+
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+    query.prepare("SELECT Souvenir, Price FROM SouvenirList WHERE TeamName = :TeamName");
+    query.bindValue(":TeamName", arg1);
+    query.exec();
+    model->setQuery(query);
+    ui->tableView_allTeamInfo->setModel(model);
 }

@@ -72,7 +72,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -658,6 +658,51 @@
       </property>
       <property name="text">
        <string>Advanced Query</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_SouvenirList">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>0</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Souvenir List</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_SouvenirDropDown">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>10</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_sortBy">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>10</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Sort By:</string>
       </property>
      </widget>
     </widget>
