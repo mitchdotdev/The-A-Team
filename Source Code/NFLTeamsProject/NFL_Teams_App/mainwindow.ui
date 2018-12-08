@@ -72,7 +72,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -959,6 +959,60 @@
        <string>BACK</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_Seating">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>10</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Total Seating Capqacity:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_Open">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>10</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Total Open Stadiums:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_total">
+      <property name="geometry">
+       <rect>
+        <x>402</x>
+        <y>10</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>pushButton_home_5</zorder>
+     <zorder>tableView_advancedQueryResults</zorder>
+     <zorder>pushButton_back</zorder>
+     <zorder>label_Open</zorder>
+     <zorder>lineEdit_total</zorder>
+     <zorder>label_Seating</zorder>
     </widget>
    </widget>
    <widget class="QLabel" name="backgroundField_label">
@@ -1004,7 +1058,7 @@
      <x>0</x>
      <y>0</y>
      <width>1196</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

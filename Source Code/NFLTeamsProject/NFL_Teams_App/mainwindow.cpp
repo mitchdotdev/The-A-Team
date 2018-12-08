@@ -183,18 +183,28 @@ void MainWindow::on_comboBox_AdvancedQuery_currentIndexChanged(const QString &ar
     {
         QSqlQuery query;
         query.exec("SELECT DISTINCT "+arg1+" FROM TeamInfo;");
-
+        if(arg1 == "SeatingCapacity"){
+            QListWidgetItem *listItem1 = new QListWidgetItem("All");
+            listItem1->setCheckState(Qt::Unchecked);
+            ui->listWidget_AdvancedQueryCriteria->addItem(listItem1);
+        }
+        else if(arg1 == "StarPlayer"){
+            QListWidgetItem *listItem2 = new QListWidgetItem("ALL");
+            listItem2->setCheckState(Qt::Unchecked);
+            ui->listWidget_AdvancedQueryCriteria->addItem(listItem2);
+        }
         while (query.next())
         {
             QListWidgetItem *listItem = new QListWidgetItem(query.value(0).toString());
             listItem->setCheckState(Qt::Unchecked);
             ui->listWidget_AdvancedQueryCriteria->addItem(listItem);
         }
+
     }
-
     else
+    {
         ui->listWidget_AdvancedQueryCriteria->addItem("Failed to Query Database");
-
+    }
     ui->listWidget_AdvancedQueryCriteria->sortItems();
 }
 
@@ -202,6 +212,10 @@ void MainWindow::on_pushButton_back_clicked() { on_pushButton_advancedQuery_clic
 
 void MainWindow::on_pushButton_QuerySelection_clicked()
 {
+    ui->lineEdit_total->hide();
+    ui->label_Open->hide();
+    ui->label_Seating->hide();
+
     QStringList checkedData;
 
     for (int i = 0; i < ui->listWidget_AdvancedQueryCriteria->model()->rowCount(); i++)
@@ -210,6 +224,51 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
 
     if (checkedData.size() <= 0)
         QMessageBox::warning(this, "Error", "Please Select At Least One Criterion!");
+    else if(checkedData.at(0) == "ALL"){
+        ui->stackedWidget->setCurrentIndex(6);
+        QSqlQueryModel* model = new QSqlQueryModel;
+        model->setQuery("SELECT StarPlayer, TeamName FROM TeamInfo ORDER BY TeamName");
+
+
+        ui->tableView_advancedQueryResults->setModel(model);
+        ui->tableView_advancedQueryResults->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_advancedQueryResults->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+        ui->tableView_advancedQueryResults->setSortingEnabled(true);
+    }
+    else if(checkedData.at(0) == "All"){
+        ui->lineEdit_total->show();
+        ui->label_Seating->show();
+        ui->stackedWidget->setCurrentIndex(6);
+        QSqlQueryModel* model = new QSqlQueryModel;
+        QSqlQueryModel* model1 = new QSqlQueryModel;
+        model->setQuery("SELECT StadiumName, TeamName, SeatingCapacity FROM TeamInfo ORDER BY SeatingCapacity");
+        model1->setQuery("SELECT sum(distinct SeatingCapacity) FROM TeamInfo");
+
+
+        ui->tableView_advancedQueryResults->setModel(model);
+        ui->tableView_advancedQueryResults->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_advancedQueryResults->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+        ui->tableView_advancedQueryResults->setSortingEnabled(true);
+
+        ui->lineEdit_total->insert(model1->record(0).value(0).toString());
+    }
+    else if(checkedData.at(0) == "Open"){
+        ui->lineEdit_total->show();
+        ui->label_Open->show();
+        ui->stackedWidget->setCurrentIndex(6);
+        QSqlQueryModel* model = new QSqlQueryModel;
+        QSqlQueryModel* model1 = new QSqlQueryModel;
+
+        model->setQuery("SELECT StadiumName, TeamName FROM TeamInfo WHERE StadiumRoofType = 'Open' ORDER BY StadiumName");
+        model1->setQuery("SELECT count(distinct StadiumName) FROM TeamInfo WHERE StadiumRoofType = 'Open'");
+
+        ui->tableView_advancedQueryResults->setModel(model);
+        ui->tableView_advancedQueryResults->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_advancedQueryResults->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+        ui->tableView_advancedQueryResults->setSortingEnabled(true);
+
+        ui->lineEdit_total->insert(model1->record(0).value(0).toString());
+    }
     else
     {
         ui->stackedWidget->setCurrentIndex(6);
@@ -238,6 +297,7 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
         ui->tableView_advancedQueryResults->setSortingEnabled(true);
     }
 }
+
 
 // Goes to trip planning page
 void MainWindow::on_pushButton_PlanTrip_clicked()
