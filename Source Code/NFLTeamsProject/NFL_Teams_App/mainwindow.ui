@@ -72,7 +72,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -200,6 +200,33 @@
       </property>
       <property name="text">
        <string>View Team Info</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_PlanTrip">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>480</y>
+        <width>200</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Plan a Trip!</string>
       </property>
       <property name="iconSize">
        <size>
@@ -631,6 +658,100 @@
       </property>
       <property name="text">
        <string>Advanced Query</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="trip_page">
+     <widget class="QPushButton" name="pushButton_home_6">
+      <property name="geometry">
+       <rect>
+        <x>1110</x>
+        <y>0</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableView_MST">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>40</y>
+        <width>491</width>
+        <height>621</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_TeamNames">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>230</y>
+        <width>291</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>190</y>
+        <width>301</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select the team you want to start your trip with:</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget_stopList">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>291</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
      </widget>
     </widget>

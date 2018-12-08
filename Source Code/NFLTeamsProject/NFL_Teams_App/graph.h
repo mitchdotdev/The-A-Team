@@ -5,9 +5,10 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <limits>
 
 // Used for comparisons sake
-const int INFINITY = std::numeric_limits<int>::max();
+enum costType { INFINITY = std::numeric_limits<int>::max() };
 
 template <typename T>
 class Vertex
@@ -22,6 +23,8 @@ public:
     Vertex();
     Vertex(T);
     Vertex(T, int);
+    // Destructor
+    ~Vertex();
 
     /*
      * Accessors
@@ -55,6 +58,10 @@ template <typename T>
 Vertex<T>::Vertex(T elem, int pos)
 : element(elem), position(pos), visited(false)
 {}
+
+// sets the vertex position to -1 i.e. does not exist
+template  <typename T>
+Vertex<T>::~Vertex() { this->position = -1; }
 
 // Returns element
 template <typename T>
@@ -95,6 +102,8 @@ public:
      */
     Edge();
     Edge(T, T, W);
+    // Destructor
+    ~Edge();
 
     /*
      * Accessors
@@ -124,6 +133,14 @@ template <typename T, typename W>
 Edge<T,W>::Edge(T start, T finish, W wt)
 : begin(start), end(finish), weight(wt), discovered(false)
 {}
+
+// Sets the edges weight to 0 and discovery status to false
+template  <typename T, typename W>
+Edge<T,W>::~Edge()
+{
+    this->weight = 0;
+    this->discovered = false;
+}
 
 // Returns the starting element
 template <typename T, typename W>
@@ -179,6 +196,8 @@ class Graph
 public:
     // Constructor
     Graph(int);
+    // Destructor
+    ~Graph();
 
     /*
      * Modifiers
@@ -210,11 +229,22 @@ template <typename T, typename W>
 Graph<T,W>::Graph(int size)
 : numOfVertices(0)
 {
+
     vertices.reserve(size);
     adjacencyMatrix.reserve(size);
 
     for(int i = 0; i < size; ++i)
         adjacencyMatrix[i].resize(size);
+
+}
+
+// Sets the number of vertices to 0 and clears the vertices and adjacency matrix vectors
+template <typename T, typename W>
+Graph<T,W>::~Graph()
+{
+    this->numOfVertices = 0;
+    this->vertices.clear();
+    this->adjacencyMatrix.clear();
 }
 
 // Returns the minimum edge
@@ -313,7 +343,7 @@ void Graph<T,W>::displayEdges() const
             qDebug() << adjacencyMatrix[i][j].getWeight();
 }
 
-// Performs Dijkstra's algorithm
+// Performs Dijkstra's algorithm over all of the nodes
 template <typename T, typename W>
 void Graph<T,W>::dijkstra(int start)
 {
@@ -359,12 +389,12 @@ void Graph<T,W>::dijkstra(int start)
 
    printDijkstra(costs, start);
 
-   qDebug() << "\nPaths Taken\n___________???";
-    for(int i = numOfVertices-1; i > -1; --i)
-        for(int j = numOfVertices-1; j > -1; --j)
-            if(visitedPaths[i][j].getBegin() != "")
-                qDebug() << visitedPaths[i][j].getBegin() << " -> "
-                         << visitedPaths[i][j].getEnd()   << "  --  " << visitedPaths[i][j].getWeight();
+//   qDebug() << "\nPaths Taken\n___________???";
+//    for(int i = numOfVertices-1; i > -1; --i)
+//        for(int j = numOfVertices-1; j > -1; --j)
+//            if(visitedPaths[i][j].getBegin() != "")
+//                qDebug() << visitedPaths[i][j].getBegin() << " -> "
+//                         << visitedPaths[i][j].getEnd()   << "  --  " << visitedPaths[i][j].getWeight();
 
 }
 
@@ -422,5 +452,4 @@ void Graph<T,W>::printMST(int parent[]) const
     }
     qDebug() << "\nTOTAL MILEAGE: " << totalWeight;
 }
-
 #endif // GRAPH_H

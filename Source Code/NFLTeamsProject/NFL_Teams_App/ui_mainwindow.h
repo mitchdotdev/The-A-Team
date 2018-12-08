@@ -38,6 +38,7 @@ public:
     QPushButton *pushButton_Stadiums;
     QPushButton *pushButton_3;
     QPushButton *pushButton_TeamInfo;
+    QPushButton *pushButton_PlanTrip;
     QWidget *conferenceView_page;
     QTableView *tableView_conferences;
     QPushButton *pushButton_viewNFC;
@@ -58,6 +59,12 @@ public:
     QTableView *tableView_allTeamInfo;
     QPushButton *pushButton_home_3;
     QPushButton *pushButton_advancedQuery;
+    QWidget *trip_page;
+    QPushButton *pushButton_home_6;
+    QTableView *tableView_MST;
+    QComboBox *comboBox_TeamNames;
+    QLabel *label_3;
+    QListWidget *listWidget_stopList;
     QWidget *advancedQuery_page;
     QPushButton *pushButton_home_4;
     QLabel *backgroundLogo_label_3;
@@ -125,7 +132,7 @@ public:
         pushButton_Stadiums->setIconSize(QSize(100, 100));
         pushButton_3 = new QPushButton(home_page);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(110, 480, 200, 60));
+        pushButton_3->setGeometry(QRect(580, 30, 200, 60));
         pushButton_3->setFont(font);
         pushButton_3->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_3->setIconSize(QSize(100, 100));
@@ -135,6 +142,12 @@ public:
         pushButton_TeamInfo->setFont(font);
         pushButton_TeamInfo->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
         pushButton_TeamInfo->setIconSize(QSize(100, 100));
+        pushButton_PlanTrip = new QPushButton(home_page);
+        pushButton_PlanTrip->setObjectName(QStringLiteral("pushButton_PlanTrip"));
+        pushButton_PlanTrip->setGeometry(QRect(110, 480, 200, 60));
+        pushButton_PlanTrip->setFont(font);
+        pushButton_PlanTrip->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
+        pushButton_PlanTrip->setIconSize(QSize(100, 100));
         stackedWidget->addWidget(home_page);
         conferenceView_page = new QWidget();
         conferenceView_page->setObjectName(QStringLiteral("conferenceView_page"));
@@ -272,6 +285,35 @@ public:
         pushButton_advancedQuery->setGeometry(QRect(960, 0, 141, 31));
         pushButton_advancedQuery->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         stackedWidget->addWidget(allTeamInfo_page);
+        trip_page = new QWidget();
+        trip_page->setObjectName(QStringLiteral("trip_page"));
+        pushButton_home_6 = new QPushButton(trip_page);
+        pushButton_home_6->setObjectName(QStringLiteral("pushButton_home_6"));
+        pushButton_home_6->setGeometry(QRect(1110, 0, 91, 31));
+        pushButton_home_6->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        tableView_MST = new QTableView(trip_page);
+        tableView_MST->setObjectName(QStringLiteral("tableView_MST"));
+        tableView_MST->setGeometry(QRect(700, 40, 491, 621));
+        tableView_MST->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
+        tableView_MST->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        tableView_MST->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableView_MST->setShowGrid(false);
+        comboBox_TeamNames = new QComboBox(trip_page);
+        comboBox_TeamNames->setObjectName(QStringLiteral("comboBox_TeamNames"));
+        comboBox_TeamNames->setGeometry(QRect(30, 230, 291, 41));
+        comboBox_TeamNames->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        label_3 = new QLabel(trip_page);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(30, 190, 301, 41));
+        listWidget_stopList = new QListWidget(trip_page);
+        listWidget_stopList->setObjectName(QStringLiteral("listWidget_stopList"));
+        listWidget_stopList->setGeometry(QRect(30, 280, 291, 331));
+        listWidget_stopList->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        listWidget_stopList->setFrameShape(QFrame::NoFrame);
+        listWidget_stopList->setLineWidth(0);
+        listWidget_stopList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        listWidget_stopList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        stackedWidget->addWidget(trip_page);
         advancedQuery_page = new QWidget();
         advancedQuery_page->setObjectName(QStringLiteral("advancedQuery_page"));
         pushButton_home_4 = new QPushButton(advancedQuery_page);
@@ -367,7 +409,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
+        comboBox_TeamNames->setCurrentIndex(-1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -379,8 +422,9 @@ public:
         backgroundLogo_label->setText(QString());
         pushButton_viewConferences->setText(QApplication::translate("MainWindow", "View Conferences", nullptr));
         pushButton_Stadiums->setText(QApplication::translate("MainWindow", "View Stadiums", nullptr));
-        pushButton_3->setText(QString());
+        pushButton_3->setText(QApplication::translate("MainWindow", "Dijkstra/MST ?", nullptr));
         pushButton_TeamInfo->setText(QApplication::translate("MainWindow", "View Team Info", nullptr));
+        pushButton_PlanTrip->setText(QApplication::translate("MainWindow", "Plan a Trip!", nullptr));
         pushButton_viewNFC->setText(QString());
         pushButton_viewAFC->setText(QString());
         label_conferences->setText(QApplication::translate("MainWindow", "CONFERENCES", nullptr));
@@ -394,6 +438,8 @@ public:
         backgroundLogo_label_2->setText(QString());
         pushButton_home_3->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         pushButton_advancedQuery->setText(QApplication::translate("MainWindow", "Advanced Query", nullptr));
+        pushButton_home_6->setText(QApplication::translate("MainWindow", "HOME", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "Select the team you want to start your trip with:", nullptr));
         pushButton_home_4->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         backgroundLogo_label_3->setText(QString());
         label->setText(QApplication::translate("MainWindow", "Select Information Type", nullptr));

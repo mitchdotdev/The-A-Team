@@ -28,14 +28,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dbmanager.cpp \
-    conferenceview.cpp
+    conferenceview.cpp \
+    trips.cpp
 
 HEADERS += \
         mainwindow.h \
     constants.h \
     dbmanager.h \
     conferenceview.h \
-    graph.h
+    graph.h \
+    trips.h
 
 FORMS += \
         mainwindow.ui

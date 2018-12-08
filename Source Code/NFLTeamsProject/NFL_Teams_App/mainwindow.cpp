@@ -25,11 +25,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Goes to the home page
+void MainWindow::on_pushButton_home_clicked()   { ui->stackedWidget->setCurrentIndex(0); }
+void MainWindow::on_pushButton_home_2_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+void MainWindow::on_pushButton_home_3_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+void MainWindow::on_pushButton_home_4_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+void MainWindow::on_pushButton_home_5_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+void MainWindow::on_pushButton_home_6_clicked() { ui->stackedWidget->setCurrentIndex(0); }
+
 // Goes to view conferences page
 void MainWindow::on_pushButton_viewConferences_clicked() { ui->stackedWidget->setCurrentIndex(1); }
-
-// Goes to the home page
-void MainWindow::on_pushButton_home_clicked() { ui->stackedWidget->setCurrentIndex(0); }
 
 /*
  * on_pushButton_viewAFC_clicked(),
@@ -39,43 +44,38 @@ void MainWindow::on_pushButton_home_clicked() { ui->stackedWidget->setCurrentInd
  * on_pushButton_eastDiv_clicked(), and
  * on_pushButton_westDiv_clicked() set tableView_conferences model to the returned QSqlQueryModel from the populateView function
  */
-
 void MainWindow::on_pushButton_viewAFC_clicked()
 {
     ui->tableView_conferences->setModel(dbQuery.populateView("American Football Conference", 0));
     ui->tableView_conferences->setColumnWidth(0, ui->tableView_conferences->width());
 }
-
 void MainWindow::on_pushButton_viewNFC_clicked()
 {
     ui->tableView_conferences->setModel(dbQuery.populateView("National Football Conference", 0));
     ui->tableView_conferences->setColumnWidth(0, ui->tableView_conferences->width());
 }
-
 void MainWindow::on_pushButton_northDiv_clicked()
 {
     ui->tableView_conferences->setModel(dbQuery.populateView("North", 1));
     ui->tableView_conferences->setColumnWidth(0, ui->tableView_conferences->width());
 }
-
 void MainWindow::on_pushButton_southDiv_clicked()
 {
     ui->tableView_conferences->setModel(dbQuery.populateView("South", 1));
     ui->tableView_conferences->setColumnWidth(0, ui->tableView_conferences->width());
 }
-
 void MainWindow::on_pushButton_eastDiv_clicked()
 {
     ui->tableView_conferences->setModel(dbQuery.populateView("East", 1));
     ui->tableView_conferences->setColumnWidth(0, ui->tableView_conferences->width());
 }
-
 void MainWindow::on_pushButton_westDiv_clicked()
 {
     ui->tableView_conferences->setModel(dbQuery.populateView("West", 1));
     ui->tableView_conferences->setColumnWidth(0, ui->tableView_conferences->width());
 }
 
+// Goes to stadium page
 void MainWindow::on_pushButton_Stadiums_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
@@ -96,14 +96,6 @@ void MainWindow::on_pushButton_Stadiums_clicked()
     ui->tableView_Stadiums->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     ui->tableView_Stadiums->setSortingEnabled(true);
 }
-
-void MainWindow::on_pushButton_home_2_clicked() { ui->stackedWidget->setCurrentIndex(0); }
-
-void MainWindow::on_pushButton_home_3_clicked() { ui->stackedWidget->setCurrentIndex(0); }
-
-void MainWindow::on_pushButton_home_4_clicked() { ui->stackedWidget->setCurrentIndex(0); }
-
-void MainWindow::on_pushButton_home_5_clicked() { ui->stackedWidget->setCurrentIndex(0); }
 
 void MainWindow::on_pushButton_TeamInfo_clicked()
 {
@@ -164,7 +156,7 @@ void MainWindow::on_comboBox_teamDropdown_currentIndexChanged(const QString &arg
 
 void MainWindow::on_pushButton_advancedQuery_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(5);
     setUpAdvancedQuery();
 }
 
@@ -220,7 +212,7 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
         QMessageBox::warning(this, "Error", "Please Select At Least One Criterion!");
     else
     {
-        ui->stackedWidget->setCurrentIndex(5);
+        ui->stackedWidget->setCurrentIndex(6);
 
         freeAllocatedMemory(advancedQueryTable);
         advancedQueryTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
@@ -247,13 +239,26 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
     }
 }
 
+// Goes to trip planning page
+void MainWindow::on_pushButton_PlanTrip_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+    ui->listWidget_stopList->clear();
+
+    QSqlQuery query;
+    query.exec("SELECT TeamName "
+               "FROM TeamInfo");
+    while(query.next())
+        ui->comboBox_TeamNames->addItem(query.value(0).toString());
+}
+
 void MainWindow::on_pushButton_3_clicked()
 {
+    QVector<QString> vertices;
     QSqlQuery query;
+
     query.exec("SELECT DISTINCT BeginningStadium "
                "FROM Distances");
-
-    QVector<QString> vertices;
     while(query.next())
         vertices.push_back(query.value(0).toString());
 
@@ -266,10 +271,28 @@ void MainWindow::on_pushButton_3_clicked()
 
     query.exec("SELECT DISTINCT BeginningStadium, EndingStadium, Distance "
                "FROM Distances");
-
     while(query.next())
         g.addEdge(new Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
 
-    g.dijkstra(g.findVertexPosition("Heinz Field"));
+    g.dijkstra(g.findVertexPosition("Qualcomm Stadium"));
     g.primMST();
+}
+
+void MainWindow::on_comboBox_TeamNames_currentTextChanged(const QString &arg1)
+{
+    ui->listWidget_stopList->clear();
+    ui->listWidget_stopList->show();
+
+    Trips t;
+    QStringList teamNames = t.addStopsList( arg1 );
+    for(int i = 0; i < teamNames.size(); ++i)
+        ui->listWidget_stopList->addItem( teamNames.at(i) );
+}
+
+void MainWindow::on_listWidget_stopList_itemClicked(QListWidgetItem *item)
+{
+    if( ui->listWidget_stopList->currentItem()->text().contains("✓", Qt::CaseSensitivity::CaseInsensitive) )
+        ui->listWidget_stopList->currentItem()->setText(item->text().remove(" ✓", Qt::CaseSensitivity::CaseInsensitive));
+    else
+        ui->listWidget_stopList->currentItem()->setText(item->text().append(+ " ✓"));
 }

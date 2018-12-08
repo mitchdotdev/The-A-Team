@@ -6,6 +6,12 @@ conferenceView::conferenceView()
     this->division = "";
 }
 
+conferenceView::~conferenceView()
+{
+    this->conference.clear();
+    this->division.clear();
+}
+
 // Assigns conference to passed in QString
 void conferenceView::setConference(QString conference) { this->conference = conference; }
 

@@ -53,12 +53,14 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		mainwindow.cpp \
 		dbmanager.cpp \
-		conferenceview.cpp qrc_resources.cpp \
+		conferenceview.cpp \
+		trips.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dbmanager.o \
 		conferenceview.o \
+		trips.o \
 		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pre.prf \
@@ -231,10 +233,12 @@ DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pr
 		constants.h \
 		dbmanager.h \
 		conferenceview.h \
-		graph.h main.cpp \
+		graph.h \
+		trips.h main.cpp \
 		mainwindow.cpp \
 		dbmanager.cpp \
-		conferenceview.cpp
+		conferenceview.cpp \
+		trips.cpp
 QMAKE_TARGET  = NFL_Teams_App
 DESTDIR       = 
 TARGET        = NFL_Teams_App.app/Contents/MacOS/NFL_Teams_App
@@ -631,8 +635,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h graph.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp conferenceview.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h graph.h trips.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp conferenceview.cpp trips.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
 
@@ -678,6 +682,8 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: /Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
@@ -704,6 +710,20 @@ moc_mainwindow.cpp: /Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framew
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
 		graph.h \
+		trips.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QStringList \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		mainwindow.h \
 		moc_predefs.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/bin/moc
@@ -735,6 +755,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 main.o: main.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
@@ -761,6 +783,20 @@ main.o: main.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
 		graph.h \
+		trips.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QStringList \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -768,6 +804,8 @@ main.o: main.cpp mainwindow.h \
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
@@ -794,6 +832,20 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
 		graph.h \
+		trips.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QStringList \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
@@ -821,6 +873,28 @@ conferenceview.o: conferenceview.cpp conferenceview.h \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQueryModel \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o conferenceview.o conferenceview.cpp
+
+trips.o: trips.cpp trips.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/QStringList \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/QtSql \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlglobal.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		/Users/mitchellohair/Qt/5.11.2/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o trips.o trips.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
