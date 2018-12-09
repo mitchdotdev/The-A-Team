@@ -267,15 +267,67 @@ void MainWindow::on_pushButton_3_clicked()
 
     // Populates the graphs vertices
     for(int i = 0; i < vertices.size(); ++i)
-        g.addVertex(new Vertex<QString>(vertices.at(i)));
+        g.addVertex(Vertex<QString>(vertices.at(i)));
 
-    query.exec("SELECT DISTINCT BeginningStadium, EndingStadium, Distance "
+    query.exec("SELECT BeginningStadium, EndingStadium, Distance "
                "FROM Distances");
     while(query.next())
-        g.addEdge(new Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
+        g.addEdge(Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
 
-    g.dijkstra(g.findVertexPosition("Qualcomm Stadium"));
+    g.dijkstra(g.findVertexPosition("Heinz Field"));
     g.primMST();
+
+//    const QString CITIES[] = {"Atlanta", "Boston", "Chicago", "Dallas", "Denver", "Houston", "Kansas City", "Los Angeles", "New York", "San Francisco", "Seattle"};
+//    Graph <QString, int> map(12);
+
+//    map.addVertex((QString)"Atlanta");
+//    map.addVertex((QString)"Boston");
+//    map.addVertex((QString)"Chicago");
+//    map.addVertex((QString)"Dallas");
+//    map.addVertex((QString)"Denver");
+//    map.addVertex((QString)"Houston");
+//    map.addVertex((QString)"Kansas City");
+//    map.addVertex((QString)"Los Angeles");
+//    map.addVertex((QString)"Miami");
+//    map.addVertex((QString)"New York");
+//    map.addVertex((QString)"San Francisco");
+//    map.addVertex((QString)"Seattle");
+
+//    map.addEdge(Edge<QString, int>("Seattle", "San Francisco", 807));
+//    map.addEdge(Edge<QString, int>("Seattle", "Denver", 1331));
+//    map.addEdge(Edge<QString, int>("Seattle", "Chicago", 2097));
+
+//    map.addEdge(Edge<QString, int>("San Francisco", "Denver", 1267));
+//    map.addEdge(Edge<QString, int>("San Francisco", "Los Angeles", 381));
+
+//    map.addEdge(Edge<QString, int>("Los Angeles", "Denver", 1015));
+//    map.addEdge(Edge<QString, int>("Los Angeles", "Kansas City", 1663));
+//    map.addEdge(Edge<QString, int>("Los Angeles", "Dallas", 1435));
+
+//    map.addEdge(Edge<QString, int>("Denver", "Kansas City", 599));
+//    map.addEdge(Edge<QString, int>("Denver", "Chicago", 1003));
+
+//    map.addEdge(Edge<QString, int>("Kansas City", "Chicago", 533));
+//    map.addEdge(Edge<QString, int>("Kansas City", "Dallas", 496));
+//    map.addEdge(Edge<QString, int>("Kansas City", "Atlanta", 864));
+//    map.addEdge(Edge<QString, int>("Kansas City", "New York", 1260));
+
+//    map.addEdge(Edge<QString, int>("Dallas", "Atlanta", 781));
+//    map.addEdge(Edge<QString, int>("Dallas", "Houston", 239));
+
+//    map.addEdge(Edge<QString, int>("Chicago", "Boston", 983));
+//    map.addEdge(Edge<QString, int>("Chicago", "New York", 787));
+
+//    map.addEdge(Edge<QString, int>("New York", "Boston", 214));
+//    map.addEdge(Edge<QString, int>("New York", "Atlanta", 888));
+
+//    map.addEdge(Edge<QString, int>("Atlanta", "Houston", 810));
+//    map.addEdge(Edge<QString, int>("Atlanta", "Miami", 661));
+
+//    map.addEdge(Edge<QString, int>("Miami", "Houston", 1187));
+
+//    map.dijkstra(map.findVertexPosition("Atlanta"));
+//    map.primMST();
 }
 
 void MainWindow::on_comboBox_TeamNames_currentTextChanged(const QString &arg1)

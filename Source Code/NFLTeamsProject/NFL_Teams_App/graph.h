@@ -1,4 +1,4 @@
-#ifndef GRAPH_H
+﻿#ifndef GRAPH_H
 #define GRAPH_H
 
 #include "constants.h"
@@ -61,31 +61,31 @@ Vertex<T>::Vertex(T elem, int pos)
 
 // sets the vertex position to -1 i.e. does not exist
 template  <typename T>
-Vertex<T>::~Vertex() { this->position = -1; }
+Vertex<T>::~Vertex() { position = -1; }
 
 // Returns element
 template <typename T>
-T Vertex<T>::getElement() const { return this->element; }
+T Vertex<T>::getElement() const { return element; }
 
 // Returns position of element
 template <typename T>
-int Vertex<T>::getPosition() const { return this->position; }
+int Vertex<T>::getPosition() const { return position; }
 
 // Returns whether a vertex has been visited
 template <typename T>
-bool Vertex<T>::isVisited() const { return this->visited; }
+bool Vertex<T>::isVisited() const { return visited; }
 
 // sets the vertices' element
 template <typename T>
-void Vertex<T>::setElement(T elem) { this->element = elem; }
+void Vertex<T>::setElement(T elem) { element = elem; }
 
 // sets the vertices' position
 template <typename T>
-void Vertex<T>::setPositions(int pos) { this->position = pos; }
+void Vertex<T>::setPositions(int pos) { position = pos; }
 
 // sets whether the vertex has been visited or not
 template <typename T>
-void Vertex<T>::setIsVisited(bool visit) { this->visited = visit; }
+void Vertex<T>::setIsVisited(bool visit) { visited = visit; }
 
 //Ends Vertex Class/////////////////////////////////////////////////////
 
@@ -138,49 +138,49 @@ Edge<T,W>::Edge(T start, T finish, W wt)
 template  <typename T, typename W>
 Edge<T,W>::~Edge()
 {
-    this->weight = 0;
-    this->discovered = false;
+    weight = 0;
+    discovered = false;
 }
 
 // Returns the starting element
 template <typename T, typename W>
-T Edge<T,W>::getBegin() const { return this->begin; }
+T Edge<T,W>::getBegin() const { return begin; }
 
 // Returns the ending element
 template <typename T, typename W>
-T Edge<T,W>::getEnd() const { return this->end; }
+T Edge<T,W>::getEnd() const { return end; }
 
 // Returns the weight
 template <typename T, typename W>
-W Edge<T,W>::getWeight() const { return this->weight; }
+W Edge<T,W>::getWeight() const { return weight; }
 
 // Returns whether the edge is discovered or not
 template <typename T, typename W>
-bool Edge<T,W>::isDiscovered() const { return this->discovered; }
+bool Edge<T,W>::isDiscovered() const { return discovered; }
 
 // Sets the starting element
 template <typename T, typename W>
-void Edge<T,W>::setBegin(T start) { this->begin = start; }
+void Edge<T,W>::setBegin(T start) { begin = start; }
 
 // Sets the ending element
 template <typename T, typename W>
-void Edge<T,W>::setEnd(T finish) { this->end = finish; }
+void Edge<T,W>::setEnd(T finish) { end = finish; }
 
 // Sets the weight
 template <typename T, typename W>
-void Edge<T,W>::setWeight(W wt) { this->weight = wt; }
+void Edge<T,W>::setWeight(W wt) { weight = wt; }
 
 // Sets whether the edge is discovered or not
 template <typename T, typename W>
-void Edge<T,W>::setIsDiscovered(bool discovery) { this->discovered = discovery; }
+void Edge<T,W>::setIsDiscovered(bool discovery) { discovered = discovery; }
 
 //Ends Edge Class///////////////////////////////////////////////////////
 
 template <typename T, typename W>
 class Graph
 {
-    std::vector< Vertex<T> > vertices;
-    std::vector< std::vector< Edge<T, W> > > adjacencyMatrix;
+    QVector< Vertex<T> > vertices;
+    QVector< QVector< Edge<T, W> > > adjacencyMatrix;
     int numOfVertices;
     /*
      * Accessors
@@ -202,8 +202,8 @@ public:
     /*
      * Modifiers
      */
-    void addEdge(Edge<T,W>*);
-    void addVertex(Vertex<T>*);
+    void addEdge(Edge<T,W>);
+    void addVertex(Vertex<T>);
 
     /*
      * Accessors
@@ -229,22 +229,18 @@ template <typename T, typename W>
 Graph<T,W>::Graph(int size)
 : numOfVertices(0)
 {
-
-    vertices.reserve(size);
-    adjacencyMatrix.reserve(size);
-
+    adjacencyMatrix.resize(size);
     for(int i = 0; i < size; ++i)
         adjacencyMatrix[i].resize(size);
-
 }
 
 // Sets the number of vertices to 0 and clears the vertices and adjacency matrix vectors
 template <typename T, typename W>
 Graph<T,W>::~Graph()
 {
-    this->numOfVertices = 0;
-    this->vertices.clear();
-    this->adjacencyMatrix.clear();
+    numOfVertices = 0;
+    vertices.clear();
+    adjacencyMatrix.clear();
 }
 
 // Returns the minimum edge
@@ -279,30 +275,33 @@ int Graph<T,W>::minKey(int key[])
 
 // Adds edge to the adjacency matrix
 template <typename T, typename W>
-void Graph<T,W>::addEdge(Edge<T,W>* edge)
+void Graph<T,W>::addEdge(Edge<T,W> edge)
 {
-    int startPos = findVertexPosition(edge->getBegin());
-    int endPos = findVertexPosition(edge->getEnd());
-    W edgeWeight = edge->getWeight();
+    int startPos = findVertexPosition(edge.getBegin());
+    int endPos = findVertexPosition(edge.getEnd());
+    W edgeWeight = edge.getWeight();
 
-    adjacencyMatrix[startPos][endPos] = *new Edge<T,W>(edge->getBegin(),
-                                                       edge->getEnd(),
-                                                       edgeWeight);
+    adjacencyMatrix[startPos][endPos] = Edge<T,W>(edge.getBegin(),
+                                                  edge.getEnd(),
+                                                  edgeWeight);
+
+    adjacencyMatrix[endPos][startPos] = Edge<T,W>(edge.getEnd(),
+                                                  edge.getBegin(),
+                                                  edgeWeight);
 }
 
 // Adds vertex to the adjacency matrix
 template <typename T, typename W>
-void Graph<T,W>::addVertex(Vertex<T>* vertex)
+void Graph<T,W>::addVertex(Vertex<T> vertex)
 {
-    vertex->setPositions(numOfVertices);
-    vertices.push_back(*vertex);
-
+    vertex.setPositions(numOfVertices);
+    vertices.push_back(vertex);
     ++numOfVertices;
 }
 
 // Returns the size of the graph
 template <typename T, typename W>
-int Graph<T,W>::getSize() const { return this->numOfVertices; }
+int Graph<T,W>::getSize() const { return numOfVertices; }
 
 // Returns the position of the parameter
 template <typename T, typename W>
@@ -348,18 +347,16 @@ template <typename T, typename W>
 void Graph<T,W>::dijkstra(int start)
 {
     int costs[numOfVertices];
-    std::vector< Edge<T,W> > edgesTaken;
-    std::vector< std::vector< Edge<T,W> > > visitedPaths;
-    visitedPaths.resize(numOfVertices);
+    QVector< Edge<T,W> > edgesTaken;
+    QVector< QVector< Edge<T,W> > > visitedPaths;
 
     edgesTaken.push_back(Edge<T,W>(vertices[start].getElement(),
                                    vertices[start].getElement(),
                                    0));
-
+    visitedPaths.resize(numOfVertices);
     for(int i = 0; i < numOfVertices; ++i)
     {
-        costs[i] = INFINITY;
-        vertices[i].setIsVisited(false);
+        costs[i] = INFINITY, vertices[i].setIsVisited(false);
         visitedPaths[i].resize(numOfVertices);
     }
 
@@ -377,8 +374,7 @@ void Graph<T,W>::dijkstra(int start)
                 costs[u] != INFINITY &&
                 costs[u] + adjacencyMatrix[u][j].getWeight() < costs[j])
             {
-                if(!visitedPaths[j].empty() &&
-                   visitedPaths[j].at(visitedPaths[j].size()-1).getEnd() == vertices[j].getElement())
+                if(!visitedPaths[j].empty() && visitedPaths[j].at(visitedPaths[j].size()-1).getEnd() == vertices[j].getElement())
                     visitedPaths[j].pop_back();
 
                 visitedPaths[j].push_back(adjacencyMatrix[u][j]);
@@ -388,11 +384,15 @@ void Graph<T,W>::dijkstra(int start)
     }
 
    printDijkstra(costs, start);
+   edgesTaken.clear();
+//   //QVector< QVector <Edge<T,W> > >(visitedPaths.begin(), visitedPaths.end()).swap(visitedPaths);
+//   visitedPaths.shrink_to_fit();
+   visitedPaths.clear();
 
 //   qDebug() << "\nPaths Taken\n___________???";
 //    for(int i = numOfVertices-1; i > -1; --i)
 //        for(int j = numOfVertices-1; j > -1; --j)
-//            if(visitedPaths[i][j].getBegin() != "")
+//            //if(visitedPaths[i][j].getBegin() != "")
 //                qDebug() << visitedPaths[i][j].getBegin() << " -> "
 //                         << visitedPaths[i][j].getEnd()   << "  --  " << visitedPaths[i][j].getWeight();
 
@@ -404,7 +404,7 @@ void Graph<T,W>::printDijkstra(int costs[], int source) const
 {
     qDebug() << "VERTEX          DISTANCE FROM " << vertices[source].getElement();
     for (int i = 0; i < numOfVertices; ++i)
-        if(i != source)
+        //if(i != source)
             qDebug() << vertices[i].getElement() << costs[i];
 }
 
@@ -417,8 +417,7 @@ void Graph<T,W>::primMST()
 
     for (int i = 0; i < numOfVertices; ++i)
     {
-        key[i] = INFINITY;
-        vertices[i].setIsVisited(false);
+        key[i] = INFINITY, vertices[i].setIsVisited(false);
     }
 
     key[0] = 0;
