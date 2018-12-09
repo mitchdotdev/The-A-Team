@@ -71,6 +71,8 @@ private slots:
     void on_pushButton_PlanTrip_clicked();
     void on_comboBox_TeamNames_currentTextChanged(const QString &arg1);
     void on_listWidget_stopList_itemClicked(QListWidgetItem *item);
+    void on_pushButton_SouvenirList_clicked();
+    void on_comboBox_SouvenirDropDown_currentIndexChanged(const QString &arg1);
 };
 template <class Type>
 void MainWindow::freeAllocatedMemory(Type *pointer)

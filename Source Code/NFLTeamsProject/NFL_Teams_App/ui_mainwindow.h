@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.2
+** Created by: Qt User Interface Compiler version 5.11.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,11 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -59,6 +59,9 @@ public:
     QTableView *tableView_allTeamInfo;
     QPushButton *pushButton_home_3;
     QPushButton *pushButton_advancedQuery;
+    QPushButton *pushButton_SouvenirList;
+    QComboBox *comboBox_SouvenirDropDown;
+    QLabel *label_sortBy;
     QWidget *trip_page;
     QPushButton *pushButton_home_6;
     QTableView *tableView_MST;
@@ -77,6 +80,9 @@ public:
     QPushButton *pushButton_home_5;
     QTableView *tableView_advancedQueryResults;
     QPushButton *pushButton_back;
+    QLabel *label_Seating;
+    QLabel *label_Open;
+    QLineEdit *lineEdit_total;
     QLabel *backgroundField_label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -284,6 +290,18 @@ public:
         pushButton_advancedQuery->setObjectName(QStringLiteral("pushButton_advancedQuery"));
         pushButton_advancedQuery->setGeometry(QRect(960, 0, 141, 31));
         pushButton_advancedQuery->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        pushButton_SouvenirList = new QPushButton(allTeamInfo_page);
+        pushButton_SouvenirList->setObjectName(QStringLiteral("pushButton_SouvenirList"));
+        pushButton_SouvenirList->setGeometry(QRect(814, 0, 141, 31));
+        pushButton_SouvenirList->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        comboBox_SouvenirDropDown = new QComboBox(allTeamInfo_page);
+        comboBox_SouvenirDropDown->setObjectName(QStringLiteral("comboBox_SouvenirDropDown"));
+        comboBox_SouvenirDropDown->setGeometry(QRect(660, 10, 141, 22));
+        comboBox_SouvenirDropDown->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
+        label_sortBy = new QLabel(allTeamInfo_page);
+        label_sortBy->setObjectName(QStringLiteral("label_sortBy"));
+        label_sortBy->setGeometry(QRect(600, 10, 51, 21));
+        label_sortBy->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         stackedWidget->addWidget(allTeamInfo_page);
         trip_page = new QWidget();
         trip_page->setObjectName(QStringLiteral("trip_page"));
@@ -384,7 +402,26 @@ public:
         pushButton_back->setObjectName(QStringLiteral("pushButton_back"));
         pushButton_back->setGeometry(QRect(0, 0, 101, 31));
         pushButton_back->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        label_Seating = new QLabel(advancedQueryResults_page);
+        label_Seating->setObjectName(QStringLiteral("label_Seating"));
+        label_Seating->setGeometry(QRect(270, 10, 121, 21));
+        label_Seating->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
+        label_Open = new QLabel(advancedQueryResults_page);
+        label_Open->setObjectName(QStringLiteral("label_Open"));
+        label_Open->setGeometry(QRect(270, 10, 111, 21));
+        label_Open->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
+        lineEdit_total = new QLineEdit(advancedQueryResults_page);
+        lineEdit_total->setObjectName(QStringLiteral("lineEdit_total"));
+        lineEdit_total->setGeometry(QRect(402, 10, 91, 21));
+        lineEdit_total->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
+        lineEdit_total->setReadOnly(true);
         stackedWidget->addWidget(advancedQueryResults_page);
+        pushButton_home_5->raise();
+        tableView_advancedQueryResults->raise();
+        pushButton_back->raise();
+        label_Open->raise();
+        lineEdit_total->raise();
+        label_Seating->raise();
         backgroundField_label = new QLabel(centralWidget);
         backgroundField_label->setObjectName(QStringLiteral("backgroundField_label"));
         backgroundField_label->setGeometry(QRect(0, 0, 1196, 732));
@@ -398,7 +435,7 @@ public:
         stackedWidget->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1196, 22));
+        menuBar->setGeometry(QRect(0, 0, 1196, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -409,7 +446,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(3);
         comboBox_TeamNames->setCurrentIndex(-1);
 
 
@@ -438,6 +475,8 @@ public:
         backgroundLogo_label_2->setText(QString());
         pushButton_home_3->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         pushButton_advancedQuery->setText(QApplication::translate("MainWindow", "Advanced Query", nullptr));
+        pushButton_SouvenirList->setText(QApplication::translate("MainWindow", "Souvenir List", nullptr));
+        label_sortBy->setText(QApplication::translate("MainWindow", "Sort By:", nullptr));
         pushButton_home_6->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Select the team you want to start your trip with:", nullptr));
         pushButton_home_4->setText(QApplication::translate("MainWindow", "HOME", nullptr));
@@ -447,6 +486,8 @@ public:
         pushButton_QuerySelection->setText(QApplication::translate("MainWindow", "Query", nullptr));
         pushButton_home_5->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         pushButton_back->setText(QApplication::translate("MainWindow", "BACK", nullptr));
+        label_Seating->setText(QApplication::translate("MainWindow", "Total Seating Capqacity:", nullptr));
+        label_Open->setText(QApplication::translate("MainWindow", "Total Open Stadiums:", nullptr));
         backgroundField_label->setText(QString());
     } // retranslateUi
 
