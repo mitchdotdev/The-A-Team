@@ -116,7 +116,6 @@ void MainWindow::populateTeamDropdown()
 
     ui->comboBox_teamDropdown->addItem("All Teams");
     numberOfTeams++;
-
     while (query.next())
     {
         ui->comboBox_teamDropdown->addItem(query.value(0).toString());
@@ -308,12 +307,41 @@ void MainWindow::on_pushButton_PlanTrip_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
     ui->listWidget_stopList->clear();
+    ui->comboBox_TeamNames->clear();
 
     QSqlQuery query;
     query.exec("SELECT TeamName "
                "FROM TeamInfo");
     while(query.next())
         ui->comboBox_TeamNames->addItem(query.value(0).toString());
+
+    Map<QString>::instance().clearContents();
+    Map<QString>::instance().insertNode(Map<QString>::instance().getSize(), ui->comboBox_TeamNames->itemText(0));
+
+//    Map<QString>::instance().print();
+
+    QVector<QString> vertices;
+    query.exec("SELECT DISTINCT BeginningStadium "
+               "FROM Distances");
+    while(query.next())
+        vertices.push_back(query.value(0).toString());
+
+    // Creates graph object with the size of the vertices
+    Graph<QString, int> g(vertices.size());
+
+    // Populates the graphs vertices
+    for(int i = 0; i < vertices.size(); ++i)
+        g.addVertex(Vertex<QString>(vertices.at(i)));
+
+    query.exec("SELECT BeginningStadium, EndingStadium, Distance "
+               "FROM Distances");
+    while(query.next())
+        g.addEdge(Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
+
+    QString MSTMileage;
+    MSTMileage.setNum(g.primMST());
+    ui->label_mileage->setText("MST Associated Mileage: " + MSTMileage);
+
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -403,14 +431,23 @@ void MainWindow::on_comboBox_TeamNames_currentTextChanged(const QString &arg1)
     QStringList teamNames = t.addStopsList( arg1 );
     for(int i = 0; i < teamNames.size(); ++i)
         ui->listWidget_stopList->addItem( teamNames.at(i) );
+
+    Map<QString>::instance().clearContents();
+    Map<QString>::instance().insertNode(Map<QString>::instance().getSize(), arg1);
 }
 
 void MainWindow::on_listWidget_stopList_itemClicked(QListWidgetItem *item)
 {
     if( ui->listWidget_stopList->currentItem()->text().contains("✓", Qt::CaseSensitivity::CaseInsensitive) )
+    {
         ui->listWidget_stopList->currentItem()->setText(item->text().remove(" ✓", Qt::CaseSensitivity::CaseInsensitive));
+        Map<QString>::instance().removeHash(item->text());
+    }
     else
+    {
+        Map<QString>::instance().insertNode(Map<QString>::instance().getSize(), item->text());
         ui->listWidget_stopList->currentItem()->setText(item->text().append(+ " ✓"));
+    }
 }
 
 void MainWindow::on_pushButton_SouvenirList_clicked()
@@ -446,4 +483,11 @@ void MainWindow::on_comboBox_SouvenirDropDown_currentIndexChanged(const QString 
     query.exec();
     model->setQuery(query);
     ui->tableView_allTeamInfo->setModel(model);
+}
+
+void MainWindow::on_pushButton_orderSelected_clicked()
+{
+    Map<QString>::instance().print();
+    Map<QString>::instance().clearContents();
+    ui->listWidget_stopList->clear();
 }

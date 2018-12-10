@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.0
+** Created by: Qt User Interface Compiler version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
@@ -64,10 +65,16 @@ public:
     QLabel *label_sortBy;
     QWidget *trip_page;
     QPushButton *pushButton_home_6;
-    QTableView *tableView_MST;
     QComboBox *comboBox_TeamNames;
     QLabel *label_3;
     QListWidget *listWidget_stopList;
+    QLabel *label_mileage;
+    QLabel *label_distance;
+    QPushButton *pushButton_orderSelected;
+    QLabel *label_orderSpecified;
+    QLabel *label_efficientOrder;
+    QPushButton *pushButton_efficientOrder;
+    QTableView *tableView_trip;
     QWidget *advancedQuery_page;
     QPushButton *pushButton_home_4;
     QLabel *backgroundLogo_label_3;
@@ -160,6 +167,9 @@ public:
         tableView_conferences = new QTableView(conferenceView_page);
         tableView_conferences->setObjectName(QStringLiteral("tableView_conferences"));
         tableView_conferences->setGeometry(QRect(10, 10, 491, 661));
+        QFont font1;
+        font1.setPointSize(17);
+        tableView_conferences->setFont(font1);
         tableView_conferences->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         tableView_conferences->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         tableView_conferences->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -167,9 +177,9 @@ public:
         pushButton_viewNFC = new QPushButton(conferenceView_page);
         pushButton_viewNFC->setObjectName(QStringLiteral("pushButton_viewNFC"));
         pushButton_viewNFC->setGeometry(QRect(950, 190, 161, 91));
-        QFont font1;
-        font1.setPointSize(70);
-        pushButton_viewNFC->setFont(font1);
+        QFont font2;
+        font2.setPointSize(70);
+        pushButton_viewNFC->setFont(font2);
         pushButton_viewNFC->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0)"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/files/images/NFCLogo.png"), QSize(), QIcon::Normal, QIcon::On);
@@ -180,7 +190,7 @@ public:
         pushButton_viewAFC = new QPushButton(conferenceView_page);
         pushButton_viewAFC->setObjectName(QStringLiteral("pushButton_viewAFC"));
         pushButton_viewAFC->setGeometry(QRect(750, 190, 161, 91));
-        pushButton_viewAFC->setFont(font1);
+        pushButton_viewAFC->setFont(font2);
         pushButton_viewAFC->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0)"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/files/images/AFCLogo.png"), QSize(), QIcon::Normal, QIcon::On);
@@ -191,41 +201,41 @@ public:
         label_conferences = new QLabel(conferenceView_page);
         label_conferences->setObjectName(QStringLiteral("label_conferences"));
         label_conferences->setGeometry(QRect(840, 120, 181, 41));
-        QFont font2;
-        font2.setPointSize(20);
-        label_conferences->setFont(font2);
+        QFont font3;
+        font3.setPointSize(20);
+        label_conferences->setFont(font3);
         label_conferences->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_conferences->setAlignment(Qt::AlignCenter);
         label_divisions = new QLabel(conferenceView_page);
         label_divisions->setObjectName(QStringLiteral("label_divisions"));
         label_divisions->setGeometry(QRect(840, 330, 181, 41));
-        label_divisions->setFont(font2);
+        label_divisions->setFont(font3);
         label_divisions->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_divisions->setAlignment(Qt::AlignCenter);
         pushButton_northDiv = new QPushButton(conferenceView_page);
         pushButton_northDiv->setObjectName(QStringLiteral("pushButton_northDiv"));
         pushButton_northDiv->setGeometry(QRect(750, 400, 161, 91));
-        QFont font3;
-        font3.setPointSize(43);
-        pushButton_northDiv->setFont(font3);
+        QFont font4;
+        font4.setPointSize(43);
+        pushButton_northDiv->setFont(font4);
         pushButton_northDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_northDiv->setIconSize(QSize(100, 100));
         pushButton_westDiv = new QPushButton(conferenceView_page);
         pushButton_westDiv->setObjectName(QStringLiteral("pushButton_westDiv"));
         pushButton_westDiv->setGeometry(QRect(950, 540, 161, 91));
-        pushButton_westDiv->setFont(font3);
+        pushButton_westDiv->setFont(font4);
         pushButton_westDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_westDiv->setIconSize(QSize(100, 100));
         pushButton_southDiv = new QPushButton(conferenceView_page);
         pushButton_southDiv->setObjectName(QStringLiteral("pushButton_southDiv"));
         pushButton_southDiv->setGeometry(QRect(950, 400, 161, 91));
-        pushButton_southDiv->setFont(font3);
+        pushButton_southDiv->setFont(font4);
         pushButton_southDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_southDiv->setIconSize(QSize(100, 100));
         pushButton_eastDiv = new QPushButton(conferenceView_page);
         pushButton_eastDiv->setObjectName(QStringLiteral("pushButton_eastDiv"));
         pushButton_eastDiv->setGeometry(QRect(750, 540, 161, 91));
-        pushButton_eastDiv->setFont(font3);
+        pushButton_eastDiv->setFont(font4);
         pushButton_eastDiv->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_eastDiv->setIconSize(QSize(100, 100));
         pushButton_home = new QPushButton(conferenceView_page);
@@ -248,6 +258,7 @@ public:
         tableView_Stadiums = new QTableView(stadium_page);
         tableView_Stadiums->setObjectName(QStringLiteral("tableView_Stadiums"));
         tableView_Stadiums->setGeometry(QRect(10, 10, 651, 661));
+        tableView_Stadiums->setFont(font1);
         tableView_Stadiums->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         tableView_Stadiums->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableView_Stadiums->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -309,16 +320,10 @@ public:
         pushButton_home_6->setObjectName(QStringLiteral("pushButton_home_6"));
         pushButton_home_6->setGeometry(QRect(1110, 0, 91, 31));
         pushButton_home_6->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
-        tableView_MST = new QTableView(trip_page);
-        tableView_MST->setObjectName(QStringLiteral("tableView_MST"));
-        tableView_MST->setGeometry(QRect(700, 40, 491, 621));
-        tableView_MST->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
-        tableView_MST->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        tableView_MST->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        tableView_MST->setShowGrid(false);
         comboBox_TeamNames = new QComboBox(trip_page);
         comboBox_TeamNames->setObjectName(QStringLiteral("comboBox_TeamNames"));
         comboBox_TeamNames->setGeometry(QRect(30, 230, 291, 41));
+        comboBox_TeamNames->setFont(font1);
         comboBox_TeamNames->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_3 = new QLabel(trip_page);
         label_3->setObjectName(QStringLiteral("label_3"));
@@ -326,12 +331,71 @@ public:
         listWidget_stopList = new QListWidget(trip_page);
         listWidget_stopList->setObjectName(QStringLiteral("listWidget_stopList"));
         listWidget_stopList->setGeometry(QRect(30, 280, 291, 331));
+        listWidget_stopList->setFont(font1);
         listWidget_stopList->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         listWidget_stopList->setFrameShape(QFrame::NoFrame);
         listWidget_stopList->setLineWidth(0);
         listWidget_stopList->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listWidget_stopList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        label_mileage = new QLabel(trip_page);
+        label_mileage->setObjectName(QStringLiteral("label_mileage"));
+        label_mileage->setGeometry(QRect(450, 40, 241, 41));
+        label_mileage->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        label_distance = new QLabel(trip_page);
+        label_distance->setObjectName(QStringLiteral("label_distance"));
+        label_distance->setGeometry(QRect(450, 90, 241, 41));
+        label_distance->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        pushButton_orderSelected = new QPushButton(trip_page);
+        pushButton_orderSelected->setObjectName(QStringLiteral("pushButton_orderSelected"));
+        pushButton_orderSelected->setGeometry(QRect(340, 230, 281, 111));
+        pushButton_orderSelected->setLayoutDirection(Qt::LeftToRight);
+        pushButton_orderSelected->setAutoFillBackground(false);
+        pushButton_orderSelected->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0);"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/files/images/arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_orderSelected->setIcon(icon2);
+        pushButton_orderSelected->setIconSize(QSize(300, 300));
+        label_orderSpecified = new QLabel(trip_page);
+        label_orderSpecified->setObjectName(QStringLiteral("label_orderSpecified"));
+        label_orderSpecified->setGeometry(QRect(380, 250, 171, 40));
+        QFont font5;
+        font5.setPointSize(17);
+        font5.setBold(true);
+        font5.setWeight(75);
+        label_orderSpecified->setFont(font5);
+        label_orderSpecified->setStyleSheet(QStringLiteral(""));
+        label_efficientOrder = new QLabel(trip_page);
+        label_efficientOrder->setObjectName(QStringLiteral("label_efficientOrder"));
+        label_efficientOrder->setGeometry(QRect(360, 520, 211, 40));
+        label_efficientOrder->setFont(font5);
+        label_efficientOrder->setStyleSheet(QStringLiteral(""));
+        pushButton_efficientOrder = new QPushButton(trip_page);
+        pushButton_efficientOrder->setObjectName(QStringLiteral("pushButton_efficientOrder"));
+        pushButton_efficientOrder->setGeometry(QRect(340, 500, 281, 111));
+        pushButton_efficientOrder->setLayoutDirection(Qt::LeftToRight);
+        pushButton_efficientOrder->setAutoFillBackground(false);
+        pushButton_efficientOrder->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0);"));
+        pushButton_efficientOrder->setIcon(icon2);
+        pushButton_efficientOrder->setIconSize(QSize(300, 300));
+        tableView_trip = new QTableView(trip_page);
+        tableView_trip->setObjectName(QStringLiteral("tableView_trip"));
+        tableView_trip->setGeometry(QRect(725, 50, 451, 561));
+        tableView_trip->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        tableView_trip->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableView_trip->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        tableView_trip->setShowGrid(false);
         stackedWidget->addWidget(trip_page);
+        pushButton_home_6->raise();
+        comboBox_TeamNames->raise();
+        label_3->raise();
+        listWidget_stopList->raise();
+        label_mileage->raise();
+        label_distance->raise();
+        pushButton_orderSelected->raise();
+        label_orderSpecified->raise();
+        pushButton_efficientOrder->raise();
+        label_efficientOrder->raise();
+        tableView_trip->raise();
         advancedQuery_page = new QWidget();
         advancedQuery_page->setObjectName(QStringLiteral("advancedQuery_page"));
         pushButton_home_4 = new QPushButton(advancedQuery_page);
@@ -356,20 +420,23 @@ public:
         label = new QLabel(advancedQuery_page);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(30, 40, 171, 31));
-        QFont font4;
-        font4.setPointSize(14);
-        label->setFont(font4);
+        QFont font6;
+        font6.setPointSize(14);
+        label->setFont(font6);
         label->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
         label->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(advancedQuery_page);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(30, 130, 391, 31));
-        label_2->setFont(font4);
+        label_2->setFont(font6);
         label_2->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
         label_2->setAlignment(Qt::AlignCenter);
         listWidget_AdvancedQueryCriteria = new QListWidget(advancedQuery_page);
         listWidget_AdvancedQueryCriteria->setObjectName(QStringLiteral("listWidget_AdvancedQueryCriteria"));
         listWidget_AdvancedQueryCriteria->setGeometry(QRect(30, 170, 391, 421));
+        QFont font7;
+        font7.setPointSize(16);
+        listWidget_AdvancedQueryCriteria->setFont(font7);
         listWidget_AdvancedQueryCriteria->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         listWidget_AdvancedQueryCriteria->setEditTriggers(QAbstractItemView::NoEditTriggers);
         pushButton_QuerySelection = new QPushButton(advancedQuery_page);
@@ -435,7 +502,7 @@ public:
         stackedWidget->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1196, 21));
+        menuBar->setGeometry(QRect(0, 0, 1196, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -446,7 +513,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(4);
         comboBox_TeamNames->setCurrentIndex(-1);
 
 
@@ -479,6 +546,12 @@ public:
         label_sortBy->setText(QApplication::translate("MainWindow", "Sort By:", nullptr));
         pushButton_home_6->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Select the team you want to start your trip with:", nullptr));
+        label_mileage->setText(QApplication::translate("MainWindow", "MST Associated Mileage: ", nullptr));
+        label_distance->setText(QApplication::translate("MainWindow", "Distance traveled: ", nullptr));
+        pushButton_orderSelected->setText(QString());
+        label_orderSpecified->setText(QApplication::translate("MainWindow", "Use order specified", nullptr));
+        label_efficientOrder->setText(QApplication::translate("MainWindow", "Use most efficient order", nullptr));
+        pushButton_efficientOrder->setText(QString());
         pushButton_home_4->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         backgroundLogo_label_3->setText(QString());
         label->setText(QApplication::translate("MainWindow", "Select Information Type", nullptr));

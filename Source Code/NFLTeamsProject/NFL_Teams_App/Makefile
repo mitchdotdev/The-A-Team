@@ -234,7 +234,8 @@ DIST          = /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/spec_pr
 		dbmanager.h \
 		conferenceview.h \
 		graph.h \
-		trips.h main.cpp \
+		trips.h \
+		map.h main.cpp \
 		mainwindow.cpp \
 		dbmanager.cpp \
 		conferenceview.cpp \
@@ -635,7 +636,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/mitchellohair/Qt/5.11.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h graph.h trips.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h constants.h dbmanager.h conferenceview.h graph.h trips.h map.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp dbmanager.cpp conferenceview.cpp trips.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
 
@@ -666,9 +667,11 @@ compiler_rcc_clean:
 qrc_resources.cpp: resources.qrc \
 		/Users/mitchellohair/Qt/5.11.2/clang_64/bin/rcc \
 		images/NFLLogo.png \
+		images/arrowCurved.png \
 		images/NFCLogo.png \
 		images/NFLField.jpg \
-		images/AFCLogo.png
+		images/AFCLogo.png \
+		images/arrow.png
 	/Users/mitchellohair/Qt/5.11.2/clang_64/bin/rcc -name resources resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h

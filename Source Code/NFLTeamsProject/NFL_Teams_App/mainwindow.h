@@ -7,6 +7,7 @@
 #include "dbmanager.h"
 #include "conferenceview.h"
 #include "graph.h"
+#include "map.h"
 #include "trips.h"
 
 struct CurrentSortMethod
@@ -61,6 +62,8 @@ private slots:
 
     void on_pushButton_TeamInfo_clicked();
     void on_comboBox_teamDropdown_currentIndexChanged(const QString &arg1);
+    void on_pushButton_SouvenirList_clicked();
+    void on_comboBox_SouvenirDropDown_currentIndexChanged(const QString &arg1);
     void on_pushButton_advancedQuery_clicked();
     void on_comboBox_AdvancedQuery_currentIndexChanged(const QString &arg1);
     void on_pushButton_back_clicked();
@@ -71,8 +74,8 @@ private slots:
     void on_pushButton_PlanTrip_clicked();
     void on_comboBox_TeamNames_currentTextChanged(const QString &arg1);
     void on_listWidget_stopList_itemClicked(QListWidgetItem *item);
-    void on_pushButton_SouvenirList_clicked();
-    void on_comboBox_SouvenirDropDown_currentIndexChanged(const QString &arg1);
+
+    void on_pushButton_orderSelected_clicked();
 };
 template <class Type>
 void MainWindow::freeAllocatedMemory(Type *pointer)

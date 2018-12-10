@@ -20,12 +20,12 @@ QStringList Trips::addStopsList(QString bTeam)
 
 QSqlQuery Trips::singleTripSearch(QString bCity, QString eCity)
 {
-    QSqlQuery query;                                                        /// query
-    query.prepare("SELECT Starting_City, Ending_City, Distance "            /// select start city, ending city, and distance
-                  "FROM Distances "                                         /// from distance table
-                  "WHERE Starting_City = :bCity AND Ending_City = :eCity"); /// checks which citys
-    query.bindValue(":bCity", bCity);                                       /// allows use of this variable in SQL - bCity
-    query.bindValue(":eCity", eCity);                                       /// allows use of this variable in SQL - eCity
+    QSqlQuery query;
+    query.prepare("SELECT Starting_City, Ending_City, Distance "
+                  "FROM Distances "
+                  "WHERE Starting_City = :bCity AND Ending_City = :eCity");
+    query.bindValue(":bCity", bCity);
+    query.bindValue(":eCity", eCity);
 
     query.exec();
     return query;

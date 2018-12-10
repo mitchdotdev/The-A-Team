@@ -37,7 +37,8 @@ HEADERS += \
     dbmanager.h \
     conferenceview.h \
     graph.h \
-    trips.h
+    trips.h \
+    map.h
 
 FORMS += \
         mainwindow.ui

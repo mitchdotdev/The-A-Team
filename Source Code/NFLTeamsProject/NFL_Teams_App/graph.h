@@ -1,10 +1,6 @@
 ﻿#ifndef GRAPH_H
 #define GRAPH_H
-
 #include "constants.h"
-#include <vector>
-#include <algorithm>
-#include <iostream>
 #include <limits>
 
 // Used for comparisons sake
@@ -192,7 +188,7 @@ class Graph
      * Algorithm output
      */
     void printDijkstra(int [], int) const;
-    void printMST(int []) const;
+    int printMST(int []) const;
 public:
     // Constructor
     Graph(int);
@@ -221,7 +217,7 @@ public:
      * Algorithms
      */
     void dijkstra(int);
-    void primMST();
+    int primMST();
 };
 
 // Constructor
@@ -385,8 +381,6 @@ void Graph<T,W>::dijkstra(int start)
 
    printDijkstra(costs, start);
    edgesTaken.clear();
-//   //QVector< QVector <Edge<T,W> > >(visitedPaths.begin(), visitedPaths.end()).swap(visitedPaths);
-//   visitedPaths.shrink_to_fit();
    visitedPaths.clear();
 
 //   qDebug() << "\nPaths Taken\n___________???";
@@ -410,7 +404,7 @@ void Graph<T,W>::printDijkstra(int costs[], int source) const
 
 // Performs Prim-Jarnik MST algorithm
 template <typename T, typename W>
-void Graph<T,W>::primMST()
+int Graph<T,W>::primMST()
 {
     int parent[numOfVertices];
     int key[numOfVertices];
@@ -433,12 +427,13 @@ void Graph<T,W>::primMST()
                 adjacencyMatrix[u][j].getWeight() <  key[j] )
                 parent[j] = u, key[j] = adjacencyMatrix[u][j].getWeight();
     }
-    printMST(parent);
+    return printMST(parent);
+
 }
 
 // Prints result of Prim-Jarnik MST algorithm
 template <typename T, typename W>
-void Graph<T,W>::printMST(int parent[]) const
+int Graph<T,W>::printMST(int parent[]) const
 {
     double totalWeight = 0;
     qDebug() << "EDGES                  WEIGHT";
@@ -450,5 +445,6 @@ void Graph<T,W>::printMST(int parent[]) const
         totalWeight += adjacencyMatrix[i][parent[i]].getWeight();
     }
     qDebug() << "\nTOTAL MILEAGE: " << totalWeight;
+    return totalWeight;
 }
 #endif // GRAPH_H
