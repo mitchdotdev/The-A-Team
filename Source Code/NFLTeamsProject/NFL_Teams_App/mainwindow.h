@@ -22,6 +22,8 @@ class MainWindow : public QMainWindow
     Ui::MainWindow *ui;
 
     void populateTeamDropdown();
+    void populateSTeamDropdown();
+    void populateS2TeamDropdown();
     void populateAllTeamInfo(const QString&);
     template <class Type>
     void freeAllocatedMemory(Type *pointer);
@@ -32,6 +34,7 @@ class MainWindow : public QMainWindow
     QSqlTableModel *allTeamInfoTable;
     QSqlTableModel *stadiumsTable;
     QSqlTableModel *advancedQueryTable;
+    QSqlTableModel *souvenirTable;
     CurrentSortMethod teamInfoTableMethod;
     CurrentSortMethod stadiumTableMethod;
 public:
@@ -58,6 +61,20 @@ private slots:
     void on_pushButton_back_clicked();
     void on_pushButton_home_5_clicked();
     void on_pushButton_QuerySelection_clicked();
+
+    void on_pushButton_Souvenirs_clicked();
+
+    void on_comboBox_teamSouvenirs_currentIndexChanged(const QString &arg1);
+    void on_pushButton_Login_clicked();
+    void on_pushButton_home_6_clicked();
+    void on_pushButton_home_7_clicked();
+    void on_pushButton_Souvenir_clicked();
+    void on_pushButton_home_8_clicked();
+    void on_pushButton_Delete_clicked();
+    void on_pushButton_Add_clicked();
+    void on_pushButton_Modify_clicked();
+    void on_comboBox_teamSouvenirs_2_currentIndexChanged(const QString &arg1);
+    void on_pushButton_AddTeam_clicked();
 };
 template <class Type>
 void MainWindow::freeAllocatedMemory(Type *pointer)

@@ -20,6 +20,8 @@ public:
     bool isOpen() const;
     // returns sql database
     QSqlDatabase getDatabase() const;
+    //Removes Souvenir
+    bool removeSouvenir(QString souv);
 
 private:
      dbmanager();                   // Dbmanager constructor

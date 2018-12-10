@@ -15,7 +15,6 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -80,18 +79,14 @@ public:
     QPushButton *pushButton_home_7;
     QPushButton *pushButton_AddTeam;
     QPushButton *pushButton_Edit;
-    QPushButton *pushButton_Souvenir;
-    QWidget *Souvs;
+    QPushButton *pushButton_ChangePrice;
+    QPushButton *pushButton_AddSouvenir;
+    QPushButton *pushButton_RemoveSouvenir;
+    QWidget *page;
     QTableView *tableView_Souvenirs_2;
     QComboBox *comboBox_teamSouvenirs_2;
     QPushButton *pushButton_home_8;
     QPushButton *pushButton_Delete;
-    QLabel *label_9;
-    QLineEdit *lineEdit_Souv;
-    QLineEdit *lineEdit_Price;
-    QLabel *label_10;
-    QPushButton *pushButton_Add;
-    QPushButton *pushButton_Modify;
     QLabel *backgroundField_label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -405,48 +400,36 @@ public:
         pushButton_Edit->setObjectName(QStringLiteral("pushButton_Edit"));
         pushButton_Edit->setGeometry(QRect(590, 360, 91, 31));
         pushButton_Edit->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
-        pushButton_Souvenir = new QPushButton(admin);
-        pushButton_Souvenir->setObjectName(QStringLiteral("pushButton_Souvenir"));
-        pushButton_Souvenir->setGeometry(QRect(590, 410, 91, 31));
-        pushButton_Souvenir->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
+        pushButton_ChangePrice = new QPushButton(admin);
+        pushButton_ChangePrice->setObjectName(QStringLiteral("pushButton_ChangePrice"));
+        pushButton_ChangePrice->setGeometry(QRect(590, 410, 91, 31));
+        pushButton_ChangePrice->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
+        pushButton_AddSouvenir = new QPushButton(admin);
+        pushButton_AddSouvenir->setObjectName(QStringLiteral("pushButton_AddSouvenir"));
+        pushButton_AddSouvenir->setGeometry(QRect(590, 460, 91, 31));
+        pushButton_AddSouvenir->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
+        pushButton_RemoveSouvenir = new QPushButton(admin);
+        pushButton_RemoveSouvenir->setObjectName(QStringLiteral("pushButton_RemoveSouvenir"));
+        pushButton_RemoveSouvenir->setGeometry(QRect(590, 510, 91, 31));
+        pushButton_RemoveSouvenir->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
         stackedWidget->addWidget(admin);
-        Souvs = new QWidget();
-        Souvs->setObjectName(QStringLiteral("Souvs"));
-        tableView_Souvenirs_2 = new QTableView(Souvs);
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        tableView_Souvenirs_2 = new QTableView(page);
         tableView_Souvenirs_2->setObjectName(QStringLiteral("tableView_Souvenirs_2"));
         tableView_Souvenirs_2->setGeometry(QRect(340, 180, 581, 181));
-        comboBox_teamSouvenirs_2 = new QComboBox(Souvs);
+        comboBox_teamSouvenirs_2 = new QComboBox(page);
         comboBox_teamSouvenirs_2->setObjectName(QStringLiteral("comboBox_teamSouvenirs_2"));
         comboBox_teamSouvenirs_2->setGeometry(QRect(340, 130, 161, 22));
-        pushButton_home_8 = new QPushButton(Souvs);
+        pushButton_home_8 = new QPushButton(page);
         pushButton_home_8->setObjectName(QStringLiteral("pushButton_home_8"));
         pushButton_home_8->setGeometry(QRect(830, 130, 91, 31));
         pushButton_home_8->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
-        pushButton_Delete = new QPushButton(Souvs);
+        pushButton_Delete = new QPushButton(page);
         pushButton_Delete->setObjectName(QStringLiteral("pushButton_Delete"));
-        pushButton_Delete->setGeometry(QRect(830, 420, 91, 31));
+        pushButton_Delete->setGeometry(QRect(830, 380, 91, 31));
         pushButton_Delete->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
-        label_9 = new QLabel(Souvs);
-        label_9->setObjectName(QStringLiteral("label_9"));
-        label_9->setGeometry(QRect(670, 440, 47, 13));
-        lineEdit_Souv = new QLineEdit(Souvs);
-        lineEdit_Souv->setObjectName(QStringLiteral("lineEdit_Souv"));
-        lineEdit_Souv->setGeometry(QRect(710, 410, 113, 21));
-        lineEdit_Price = new QLineEdit(Souvs);
-        lineEdit_Price->setObjectName(QStringLiteral("lineEdit_Price"));
-        lineEdit_Price->setGeometry(QRect(710, 440, 113, 21));
-        label_10 = new QLabel(Souvs);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(650, 410, 47, 16));
-        pushButton_Add = new QPushButton(Souvs);
-        pushButton_Add->setObjectName(QStringLiteral("pushButton_Add"));
-        pushButton_Add->setGeometry(QRect(830, 380, 91, 31));
-        pushButton_Add->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
-        pushButton_Modify = new QPushButton(Souvs);
-        pushButton_Modify->setObjectName(QStringLiteral("pushButton_Modify"));
-        pushButton_Modify->setGeometry(QRect(830, 460, 91, 31));
-        pushButton_Modify->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127); color:white"));
-        stackedWidget->addWidget(Souvs);
+        stackedWidget->addWidget(page);
         backgroundField_label = new QLabel(centralWidget);
         backgroundField_label->setObjectName(QStringLiteral("backgroundField_label"));
         backgroundField_label->setGeometry(QRect(0, 0, 1196, 732));
@@ -471,7 +454,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -510,13 +493,11 @@ public:
         pushButton_home_7->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         pushButton_AddTeam->setText(QApplication::translate("MainWindow", "Add Team", nullptr));
         pushButton_Edit->setText(QApplication::translate("MainWindow", "Edit Stadium Info", nullptr));
-        pushButton_Souvenir->setText(QApplication::translate("MainWindow", "Souvenirs", nullptr));
+        pushButton_ChangePrice->setText(QApplication::translate("MainWindow", "Change Price", nullptr));
+        pushButton_AddSouvenir->setText(QApplication::translate("MainWindow", "Add Souvenir", nullptr));
+        pushButton_RemoveSouvenir->setText(QApplication::translate("MainWindow", "Remove Souvenir", nullptr));
         pushButton_home_8->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         pushButton_Delete->setText(QApplication::translate("MainWindow", "Delete", nullptr));
-        label_9->setText(QApplication::translate("MainWindow", "Price:", nullptr));
-        label_10->setText(QApplication::translate("MainWindow", "Souvenir:", nullptr));
-        pushButton_Add->setText(QApplication::translate("MainWindow", "Add", nullptr));
-        pushButton_Modify->setText(QApplication::translate("MainWindow", "Modify", nullptr));
         backgroundField_label->setText(QString());
     } // retranslateUi
 

@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     allTeamInfoTable = nullptr;
     stadiumsTable = nullptr;
     advancedQueryTable = nullptr;
+    souvenirTable = nullptr;
     teamInfoTableMethod = { -1, Qt::SortOrder::DescendingOrder };
     stadiumTableMethod = { -1, Qt::SortOrder::DescendingOrder };
 }
@@ -22,6 +23,7 @@ MainWindow::~MainWindow()
     freeAllocatedMemory(allTeamInfoTable);
     freeAllocatedMemory(stadiumsTable);
     freeAllocatedMemory(advancedQueryTable);
+    freeAllocatedMemory(souvenirTable);
     delete ui;
 }
 
@@ -245,4 +247,259 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
         ui->tableView_advancedQueryResults->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
         ui->tableView_advancedQueryResults->setSortingEnabled(true);
     }
+}
+
+
+//Start of Westin's Code
+void MainWindow::on_pushButton_Souvenirs_clicked()
+{
+     populateSTeamDropdown();
+
+     ui->stackedWidget->setCurrentIndex(6);
+
+     freeAllocatedMemory(souvenirTable);
+     souvenirTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
+
+     souvenirTable->setTable("SouvenirList");
+
+     ui->tableView_Souvenirs->setModel(souvenirTable);
+
+     ui->tableView_Souvenirs->setEditTriggers(QAbstractItemView::NoEditTriggers);
+     ui->tableView_Souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+     ui->tableView_Souvenirs->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+     ui->tableView_Souvenirs->setSortingEnabled(true);
+}
+
+void MainWindow::populateSTeamDropdown()
+{
+    QSqlQuery query;
+    numberOfTeams = 0;
+
+    query.exec("SELECT TeamName FROM TeamInfo;");
+
+    ui->comboBox_teamSouvenirs->clear();
+
+    ui->comboBox_teamSouvenirs->addItem("All Teams");
+    numberOfTeams++;
+
+    while (query.next())
+    {
+        ui->comboBox_teamSouvenirs->addItem(query.value(0).toString());
+        numberOfTeams++;
+    }
+}
+
+void MainWindow::populateS2TeamDropdown()
+{
+    QSqlQuery query;
+    numberOfTeams = 0;
+
+    query.exec("SELECT TeamName FROM TeamInfo;");
+
+    ui->comboBox_teamSouvenirs_2->clear();
+
+    ui->comboBox_teamSouvenirs_2->addItem("All Teams");
+    numberOfTeams++;
+
+    while (query.next())
+    {
+        ui->comboBox_teamSouvenirs_2->addItem(query.value(0).toString());
+        numberOfTeams++;
+    }
+}
+
+void MainWindow::on_comboBox_teamSouvenirs_currentIndexChanged(const QString &selectedTeam)
+{
+    freeAllocatedMemory(souvenirTable);
+    souvenirTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
+
+    souvenirTable->setTable("SouvenirList");
+
+    if (selectedTeam != "All Teams")
+       souvenirTable->setFilter("Teams=\""+selectedTeam+"\"");
+    else
+       souvenirTable->setFilter("");
+
+    souvenirTable->setSort(2, Qt::SortOrder::AscendingOrder);
+
+    souvenirTable->select();
+
+    ui->tableView_Souvenirs->setModel(souvenirTable);
+
+    ui->tableView_Souvenirs->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableView_Souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_Souvenirs->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableView_Souvenirs->setSortingEnabled(true);
+}
+
+//NEEDS LOGIN
+void MainWindow::on_pushButton_Login_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_pushButton_home_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_home_7_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+//INPUT VALIDATION FOR SOUV AND PRICE
+void MainWindow::on_pushButton_Souvenir_clicked()
+{
+    populateS2TeamDropdown();
+
+    ui->stackedWidget->setCurrentIndex(8);
+
+    freeAllocatedMemory(souvenirTable);
+    souvenirTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
+
+    souvenirTable->setTable("SouvenirList");
+
+    ui->tableView_Souvenirs_2->setModel(souvenirTable);
+
+    ui->tableView_Souvenirs_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableView_Souvenirs_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_Souvenirs_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableView_Souvenirs_2->setSortingEnabled(true);
+}
+
+void MainWindow::on_pushButton_home_8_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_Delete_clicked()
+{
+    QString souv;
+    souv = ui->lineEdit_Souv->displayText();
+
+    QSqlQuery queryObject;
+
+    queryObject.prepare("DELETE FROM souvenirList WHERE Souvenir = :souv");
+    queryObject.bindValue(":souv", souv);
+    queryObject.exec();
+    ui->tableView_Souvenirs_2->update();
+}
+
+void MainWindow::on_pushButton_Add_clicked()
+{
+    QString team;
+    QString souv;
+    QString price;
+
+    team = ui->comboBox_teamSouvenirs_2->currentText();
+    souv = ui->lineEdit_Souv->displayText();
+    price = ui->lineEdit_Price->displayText();
+
+    QSqlQuery queryObject;
+
+    queryObject.prepare("INSERT INTO SouvenirList(Teams, Souvenir, Price) VALUES(:team, :souv, :price)");
+    queryObject.bindValue(":team", team);
+    queryObject.bindValue(":souv", souv);
+    queryObject.bindValue(":price", price);
+    queryObject.exec();
+
+    ui->tableView_Souvenirs_2->update();
+}
+
+void MainWindow::on_pushButton_Modify_clicked()
+{
+    QString team;
+    QString souv;
+    QString price;
+
+    team = ui->comboBox_teamSouvenirs_2->currentText();
+    souv = ui->lineEdit_Souv->displayText();
+    price = ui->lineEdit_Price->displayText();
+
+    qDebug() << team;
+    qDebug() << souv;
+    qDebug() << price;
+
+    QSqlQuery queryObject;
+
+    queryObject.prepare("UPDATE SouvenirList SET Price = :price WHERE Teams = :team AND Souvenir = :souv");
+    queryObject.bindValue(":team", team);
+    queryObject.bindValue(":souv", souv);
+    queryObject.bindValue(":price", price);
+    queryObject.exec();
+
+    ui->tableView_Souvenirs_2->update();
+}
+
+void MainWindow::on_comboBox_teamSouvenirs_2_currentIndexChanged(const QString &selectedTeam)
+{
+    freeAllocatedMemory(souvenirTable);
+    souvenirTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
+
+    souvenirTable->setTable("SouvenirList");
+
+    if (selectedTeam != "All Teams")
+       souvenirTable->setFilter("Teams=\""+selectedTeam+"\"");
+    else
+       souvenirTable->setFilter("");
+
+    souvenirTable->setSort(2, Qt::SortOrder::AscendingOrder);
+
+    souvenirTable->select();
+
+    ui->tableView_Souvenirs_2->setModel(souvenirTable);
+
+    ui->tableView_Souvenirs_2->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableView_Souvenirs_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView_Souvenirs_2->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+    ui->tableView_Souvenirs_2->setSortingEnabled(true);
+}
+
+//NOT SURE IF QUERY IS CORRECT
+void MainWindow::on_pushButton_AddTeam_clicked()
+{
+    QSqlQuery queryObject;
+
+    queryObject.prepare("INSERT INTO TeamInfo(TeamName, StadiumName, Seating Capacity, Location, Conference, Division, SurfaceType, StadiumRoofType, StarPlayer)"
+                        "VALUES(San Diego Sailors,Qualcomm Stadium, 71500, San Diego/,California, American Football Conference, NA, Bermuda Grass, Open, Kenny Rogers)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO Distances(TeamName, BeginningStadium, EndingStadium, Distance)"
+                        "VALUES(San Diego, Qualcomm Stadium, Los Angeles Memorial Coliseum, 121)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO Distances(TeamName, BeginningStadium, EndingStadium, Distance)"
+                        "VALUES(San Diego, Qualcomm Stadium, Broncos Stadium at Mile High, 830)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO Distances(TeamName, BeginningStadium, EndingStadium, Distance)"
+                        "VALUES(San Diego, Qualcomm Stadium, State Farm Stadium, 300)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO souvenirList(Teams, Souvenir, Price)"
+                        "VALUES(San Diego, Signed helmets, 74.99)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO souvenirList(Teams, Souvenir, Price)"
+                        "VALUES(San Diego, Autographed football, 79.89)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO souvenirList(Teams, Souvenir, Price)"
+                        "VALUES(San Diego, Team pennant, 17.99)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO souvenirList(Teams, Souvenir, Price)"
+                        "VALUES(San Diego, Team picture, 19.99)");
+    queryObject.exec();
+    queryObject.next();
+    queryObject.prepare("INSERT INTO souvenirList(Teams, Souvenir, Price)"
+                        "VALUES(San Diego, Team jersey, 199.99)");
+    queryObject.exec();
+}
+
+//STILL NEEDS TO BE DONE
+void MainWindow::on_pushButton_Edit_clicked()
+{
+
 }

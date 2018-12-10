@@ -1,4 +1,5 @@
 #include "dbmanager.h"
+#include <QtSql>
 
 dbmanager::dbmanager()
 {
@@ -29,3 +30,23 @@ dbmanager& dbmanager::instance()
 }
 
 QSqlDatabase dbmanager::getDatabase() const { return programDatabase; }
+
+bool dbmanager::removeSouvenir(QString souv)
+{
+    QSqlQuery queryObject;
+    bool success;
+
+    queryObject.prepare("DELETE FROM souvenirList WHERE Souvenir = :souv");
+    queryObject.bindValue(":souv", souv);
+    success = false;
+    if(queryObject.exec())
+    {
+        success = true;
+    }
+    else
+    {
+        qDebug() << "Error Removing Souvenir For: " << queryObject.lastError();
+    }
+
+    return success;
+}
