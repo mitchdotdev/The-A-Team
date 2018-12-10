@@ -7,11 +7,11 @@ ConferencePage::ConferencePage()
                  "Cleveland Browns", "Denver Broncos", "Houston Texans",
                  "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs",
                  "Los Angeles Chargers", "Miami Dolphins", "New England Patriots",
-                 "New York Jets", "Oakland Raiders", "Pittsburgh Steelers", "Tennessee Titans"};
+                 "New York Jets", "Oakland Raiders", "Pittsburgh Steelers", "Tennessee Titans", "San Diego Sailors"};
     this->AFCNorth = {"Baltimore Ravens", "Cincinnati Bengals", "Cleveland Browns", "Pittsburgh Steelers"};
     this->AFCSouth = {"Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Tennessee Titans"};
     this->AFCEast = {"Buffalo Bills", "Miami Dolphins", "New England Patriots", "New York Jets"};
-    this->AFCWest = {"Denver Broncos", "Kansas City Chiefs", "Los Angeles Chargers", "Oakland Raiders"};
+    this->AFCWest = {"Denver Broncos", "Kansas City Chiefs", "Los Angeles Chargers", "Oakland Raiders", "San Diego Sailors"};
 
     this->NFC = {"Arizona Cardinals", "Atlanta Falcons", "Carolina Panthers",
                  "Chicago Bears", "Dallas Cowboys", "Detroit Lions",

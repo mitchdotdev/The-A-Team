@@ -154,14 +154,11 @@
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_Souvenirs">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>450</y>
+        <x>580</x>
+        <y>30</y>
         <width>200</width>
         <height>60</height>
        </rect>
@@ -172,10 +169,10 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
       </property>
       <property name="text">
-       <string>View Souvenirs</string>
+       <string>Dijkstra/MST ?</string>
       </property>
       <property name="iconSize">
        <size>
@@ -211,11 +208,38 @@
        </size>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_PlanTrip">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>480</y>
+        <width>200</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Plan a Trip!</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
      <widget class="QPushButton" name="pushButton_Login">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>120</y>
+        <x>480</x>
+        <y>310</y>
         <width>200</width>
         <height>60</height>
        </rect>
@@ -238,12 +262,6 @@
        </size>
       </property>
      </widget>
-     <zorder>backgroundLogo_label</zorder>
-     <zorder>pushButton_viewConferences</zorder>
-     <zorder>pushButton_Stadiums</zorder>
-     <zorder>pushButton_TeamInfo</zorder>
-     <zorder>pushButton_Souvenirs</zorder>
-     <zorder>pushButton_Login</zorder>
     </widget>
     <widget class="QWidget" name="conferenceView_page">
      <widget class="QTableView" name="tableView_conferences">
@@ -254,6 +272,11 @@
         <width>491</width>
         <height>661</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
@@ -537,6 +560,11 @@
         <height>661</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
@@ -669,6 +697,308 @@
        <string>Advanced Query</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_SouvenirList">
+      <property name="geometry">
+       <rect>
+        <x>814</x>
+        <y>0</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Souvenir List</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_SouvenirDropDown">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>10</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_sortBy">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>10</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Sort By:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="trip_page">
+     <widget class="QPushButton" name="pushButton_home_6">
+      <property name="geometry">
+       <rect>
+        <x>1110</x>
+        <y>0</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_TeamNames">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>230</y>
+        <width>291</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>190</y>
+        <width>301</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select the team you want to start your trip with:</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget_stopList">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>291</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_mileage">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>40</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>MST Associated Mileage: </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_distance">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>90</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>Distance traveled: </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_orderSelected">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>230</y>
+        <width>281</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/files/images/arrow.png</normaloff>:/files/images/arrow.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>300</width>
+        <height>300</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_orderSpecified">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>250</y>
+        <width>171</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Use order specified</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_efficientOrder">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>520</y>
+        <width>211</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Use most efficient order</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_efficientOrder">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>500</y>
+        <width>281</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/files/images/arrow.png</normaloff>:/files/images/arrow.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>300</width>
+        <height>300</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableView_trip">
+      <property name="geometry">
+       <rect>
+        <x>725</x>
+        <y>50</y>
+        <width>451</width>
+        <height>561</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <zorder>pushButton_home_6</zorder>
+     <zorder>comboBox_TeamNames</zorder>
+     <zorder>label_3</zorder>
+     <zorder>listWidget_stopList</zorder>
+     <zorder>label_mileage</zorder>
+     <zorder>label_distance</zorder>
+     <zorder>pushButton_orderSelected</zorder>
+     <zorder>label_orderSpecified</zorder>
+     <zorder>pushButton_efficientOrder</zorder>
+     <zorder>label_efficientOrder</zorder>
+     <zorder>tableView_trip</zorder>
     </widget>
     <widget class="QWidget" name="advancedQuery_page">
      <widget class="QPushButton" name="pushButton_home_4">
@@ -785,6 +1115,11 @@
         <height>421</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
@@ -874,67 +1209,67 @@
        <string>BACK</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="souvenirInfo">
-     <widget class="QTableView" name="tableView_Souvenirs">
+     <widget class="QLabel" name="label_Seating">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>190</y>
-        <width>581</width>
-        <height>181</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_teamSouvenirs">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>140</y>
-        <width>161</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_home_6">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>140</y>
-        <width>91</width>
-        <height>31</height>
+        <x>270</x>
+        <y>10</y>
+        <width>121</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
       <property name="text">
-       <string>HOME</string>
+       <string>Total Seating Capqacity:</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="admin">
-     <widget class="QPushButton" name="pushButton_home_7">
+     <widget class="QLabel" name="label_Open">
       <property name="geometry">
        <rect>
-        <x>780</x>
-        <y>160</y>
-        <width>91</width>
-        <height>31</height>
+        <x>270</x>
+        <y>10</y>
+        <width>111</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
       </property>
       <property name="text">
-       <string>HOME</string>
+       <string>Total Open Stadiums:</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="lineEdit_total">
+      <property name="geometry">
+       <rect>
+        <x>402</x>
+        <y>10</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white; background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>pushButton_home_5</zorder>
+     <zorder>tableView_advancedQueryResults</zorder>
+     <zorder>pushButton_back</zorder>
+     <zorder>label_Open</zorder>
+     <zorder>lineEdit_total</zorder>
+     <zorder>label_Seating</zorder>
+    </widget>
+    <widget class="QWidget" name="Admin">
      <widget class="QPushButton" name="pushButton_AddTeam">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>310</y>
+        <x>670</x>
+        <y>380</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -946,27 +1281,11 @@
        <string>Add Team</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_Edit">
-      <property name="geometry">
-       <rect>
-        <x>590</x>
-        <y>360</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
-      </property>
-      <property name="text">
-       <string>Edit Stadium Info</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_Souvenir">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>410</y>
+        <x>670</x>
+        <y>480</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -978,33 +1297,11 @@
        <string>Souvenirs</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="Souvs">
-     <widget class="QTableView" name="tableView_Souvenirs_2">
+     <widget class="QPushButton" name="pushButton_home_7">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>180</y>
-        <width>581</width>
-        <height>181</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_teamSouvenirs_2">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>130</y>
-        <width>161</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_home_8">
-      <property name="geometry">
-       <rect>
-        <x>830</x>
-        <y>130</y>
+        <x>860</x>
+        <y>230</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1016,11 +1313,11 @@
        <string>HOME</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_Delete">
+     <widget class="QPushButton" name="pushButton_Edit">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>420</y>
+        <x>670</x>
+        <y>430</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1029,60 +1326,26 @@
        <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
       </property>
       <property name="text">
-       <string>Delete</string>
+       <string>Edit Stadium Info</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_9">
+    </widget>
+    <widget class="QWidget" name="SouvEdit">
+     <widget class="QComboBox" name="comboBox_teamSouvenirs">
       <property name="geometry">
        <rect>
-        <x>670</x>
-        <y>440</y>
-        <width>47</width>
-        <height>13</height>
+        <x>280</x>
+        <y>250</y>
+        <width>161</width>
+        <height>22</height>
        </rect>
-      </property>
-      <property name="text">
-       <string>Price:</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_Souv">
-      <property name="geometry">
-       <rect>
-        <x>710</x>
-        <y>410</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_Price">
-      <property name="geometry">
-       <rect>
-        <x>710</x>
-        <y>440</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>410</y>
-        <width>47</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Souvenir:</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_Add">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>380</y>
+        <x>770</x>
+        <y>500</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1094,11 +1357,89 @@
        <string>Add</string>
       </property>
      </widget>
+     <widget class="QTableView" name="tableView_Souvenirs">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>300</y>
+        <width>581</width>
+        <height>181</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Souv">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>530</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Delete">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>540</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>530</y>
+        <width>47</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Souvenir:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_home_8">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>250</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>560</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Price:</string>
+      </property>
+     </widget>
      <widget class="QPushButton" name="pushButton_Modify">
       <property name="geometry">
        <rect>
-        <x>830</x>
-        <y>460</y>
+        <x>770</x>
+        <y>580</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1108,6 +1449,16 @@
       </property>
       <property name="text">
        <string>Modify</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Price">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>560</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
       </property>
      </widget>
     </widget>

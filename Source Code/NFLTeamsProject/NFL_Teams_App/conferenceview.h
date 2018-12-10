@@ -9,6 +9,7 @@ class conferenceView
     QString division;   // Holds the current division selected by the fan
 public:
     conferenceView(); // Default Constructor
+    ~conferenceView(); // Destructor
     void setConference(QString);    // Sets the current conference of the fan
     QString getConference();    // Returns the current conference of the fan
     void setDivision(QString);  // Sets the current division of the fan

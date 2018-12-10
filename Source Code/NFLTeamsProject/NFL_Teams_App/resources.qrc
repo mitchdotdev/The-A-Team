@@ -4,5 +4,7 @@
         <file>images/NFLField.jpg</file>
         <file>images/AFCLogo.png</file>
         <file>images/NFCLogo.png</file>
+        <file>images/arrow.png</file>
+        <file>images/arrowCurved.png</file>
     </qresource>
 </RCC>
