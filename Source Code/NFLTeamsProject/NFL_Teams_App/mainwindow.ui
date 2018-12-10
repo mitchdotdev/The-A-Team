@@ -72,7 +72,7 @@
      </size>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="home_page">
      <property name="styleSheet">
@@ -154,11 +154,14 @@
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pushButton_Souvenirs">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>480</y>
+        <y>450</y>
         <width>200</width>
         <height>60</height>
        </rect>
@@ -169,10 +172,10 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
       </property>
       <property name="text">
-       <string/>
+       <string>View Souvenirs</string>
       </property>
       <property name="iconSize">
        <size>
@@ -208,6 +211,39 @@
        </size>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Login">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>120</y>
+        <width>200</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Login</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+     </widget>
+     <zorder>backgroundLogo_label</zorder>
+     <zorder>pushButton_viewConferences</zorder>
+     <zorder>pushButton_Stadiums</zorder>
+     <zorder>pushButton_TeamInfo</zorder>
+     <zorder>pushButton_Souvenirs</zorder>
+     <zorder>pushButton_Login</zorder>
     </widget>
     <widget class="QWidget" name="conferenceView_page">
      <widget class="QTableView" name="tableView_conferences">
@@ -839,6 +875,242 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="souvenirInfo">
+     <widget class="QTableView" name="tableView_Souvenirs">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>190</y>
+        <width>581</width>
+        <height>181</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_teamSouvenirs">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>140</y>
+        <width>161</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_home_6">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>140</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="admin">
+     <widget class="QPushButton" name="pushButton_home_7">
+      <property name="geometry">
+       <rect>
+        <x>780</x>
+        <y>160</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_AddTeam">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>310</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Add Team</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Edit">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>360</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Edit Stadium Info</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Souvenir">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>410</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Souvenirs</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Souvs">
+     <widget class="QTableView" name="tableView_Souvenirs_2">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>180</y>
+        <width>581</width>
+        <height>181</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_teamSouvenirs_2">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>130</y>
+        <width>161</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_home_8">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>130</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127)</string>
+      </property>
+      <property name="text">
+       <string>HOME</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Delete">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>420</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>440</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Price:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Souv">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>410</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Price">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>440</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>410</y>
+        <width>47</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Souvenir:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Add">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>380</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Modify">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>460</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(0, 0, 0, 127); color:white</string>
+      </property>
+      <property name="text">
+       <string>Modify</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QLabel" name="backgroundField_label">
     <property name="geometry">
@@ -883,7 +1155,7 @@
      <x>0</x>
      <y>0</y>
      <width>1196</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
