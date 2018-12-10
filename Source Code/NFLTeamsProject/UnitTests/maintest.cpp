@@ -1,13 +1,13 @@
 #include "tst_conferencepage.h"
-#include "tst_stadiumpage.h"
+#include "tst_graph.h"
 
 int main()
 {
-    ConferencePage conferenceTest;
-    QTest::qExec(&conferenceTest);
+//    ConferencePage conferenceTest;
+//    QTest::qExec(&conferenceTest);
 
-    StadiumPage stadiumTest;
-    QTest::qExec(&stadiumTest);
+    GraphPage graphTest;
+    QTest::qExec(&graphTest);
 
     return 0;
 }

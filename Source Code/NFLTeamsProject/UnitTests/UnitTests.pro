@@ -14,13 +14,12 @@ SOURCES += \
     tst_conferencepage.cpp \
     dbmanager.cpp \
     conferenceview.cpp \
-    #mainwindow.cpp \
-    tst_stadiumpage.cpp \
-    maintest.cpp
+    maintest.cpp \
+    tst_graph.cpp
 
 HEADERS += \
     dbmanager.h \
     conferenceview.h \
-    #mainwindow.h \
+    graph.h \
     tst_conferencepage.h \
-    tst_stadiumpage.h
+    tst_graph.h

@@ -1,10 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+#include <QListWidget>
 #include <QMessageBox>
 #include <QSqlTableModel>
 #include "dbmanager.h"
 #include "conferenceview.h"
+#include "graph.h"
+#include "map.h"
+#include "trips.h"
 
 struct CurrentSortMethod
 {
@@ -39,25 +43,39 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_viewConferences_clicked();
     void on_pushButton_home_clicked();
+    void on_pushButton_home_2_clicked();
+    void on_pushButton_home_3_clicked();
+    void on_pushButton_home_4_clicked();
+    void on_pushButton_home_5_clicked();
+    void on_pushButton_home_6_clicked();
+
+    void on_pushButton_viewConferences_clicked();
     void on_pushButton_viewAFC_clicked();
     void on_pushButton_viewNFC_clicked();
     void on_pushButton_northDiv_clicked();
     void on_pushButton_southDiv_clicked();
     void on_pushButton_eastDiv_clicked();
     void on_pushButton_westDiv_clicked();
+
     void on_pushButton_Stadiums_clicked();
-    void on_pushButton_home_2_clicked();
-    void on_pushButton_home_3_clicked();
+
     void on_pushButton_TeamInfo_clicked();
     void on_comboBox_teamDropdown_currentIndexChanged(const QString &arg1);
-    void on_pushButton_home_4_clicked();
+    void on_pushButton_SouvenirList_clicked();
+    void on_comboBox_SouvenirDropDown_currentIndexChanged(const QString &arg1);
     void on_pushButton_advancedQuery_clicked();
     void on_comboBox_AdvancedQuery_currentIndexChanged(const QString &arg1);
     void on_pushButton_back_clicked();
-    void on_pushButton_home_5_clicked();
     void on_pushButton_QuerySelection_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_PlanTrip_clicked();
+    void on_comboBox_TeamNames_currentTextChanged(const QString &arg1);
+    void on_listWidget_stopList_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_orderSelected_clicked();
 };
 template <class Type>
 void MainWindow::freeAllocatedMemory(Type *pointer)
