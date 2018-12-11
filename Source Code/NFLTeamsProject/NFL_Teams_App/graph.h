@@ -4,7 +4,7 @@
 #include <limits>
 
 // Used for comparisons sake
-//enum costType { INFINITY = std::numeric_limits<int>::max() };
+enum costType { INFINITY = std::numeric_limits<int>::max() };
 
 template <typename T>
 class Vertex

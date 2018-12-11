@@ -326,24 +326,24 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
 }
 
 //Start of Westin's Code
-void MainWindow::on_pushButton_Souvenirs_clicked()
-{
-     populateSTeamDropdown();
+//void MainWindow::on_pushButton_Souvenirs_clicked()
+//{
+//     populateSTeamDropdown();
 
-     ui->stackedWidget->setCurrentIndex(6);
+//     ui->stackedWidget->setCurrentIndex(6);
 
-     freeAllocatedMemory(souvenirTable);
-     souvenirTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
+//     freeAllocatedMemory(souvenirTable);
+//     souvenirTable = new QSqlTableModel(this, dbmanager::instance().getDatabase());
 
-     souvenirTable->setTable("SouvenirList");
+//     souvenirTable->setTable("SouvenirList");
 
-     ui->tableView_Souvenirs->setModel(souvenirTable);
+//     ui->tableView_Souvenirs->setModel(souvenirTable);
 
-     ui->tableView_Souvenirs->setEditTriggers(QAbstractItemView::NoEditTriggers);
-     ui->tableView_Souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-     ui->tableView_Souvenirs->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-     ui->tableView_Souvenirs->setSortingEnabled(true);
-}
+//     ui->tableView_Souvenirs->setEditTriggers(QAbstractItemView::NoEditTriggers);
+//     ui->tableView_Souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//     ui->tableView_Souvenirs->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+//     ui->tableView_Souvenirs->setSortingEnabled(true);
+//}
 
 void MainWindow::populateSTeamDropdown()
 {

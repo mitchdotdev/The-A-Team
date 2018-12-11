@@ -56,6 +56,7 @@ private slots:
     void on_pushButton_home_6_clicked();
     void on_pushButton_home_7_clicked();
     void on_pushButton_home_8_clicked();
+    void on_pushButton_home_9_clicked();
 
     void on_pushButton_viewConferences_clicked();
     void on_pushButton_viewAFC_clicked();
@@ -77,7 +78,7 @@ private slots:
     void on_pushButton_QuerySelection_clicked();
 
     void on_pushButton_Edit_clicked();
-    void on_pushButton_Souvenirs_clicked();
+    //void on_pushButton_Souvenirs_clicked();
     void on_pushButton_Login_clicked();
     void on_pushButton_Souvenir_clicked();
     void on_pushButton_Delete_clicked();
@@ -93,7 +94,6 @@ private slots:
     void on_listWidget_stopList_itemClicked(QListWidgetItem *item);
 
     void on_pushButton_orderSelected_clicked();
-    void on_pushButton_home_9_clicked();
     void on_pushButton_Edit_2_clicked();
 };
 template <class Type>
