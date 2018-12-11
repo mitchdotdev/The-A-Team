@@ -72,8 +72,6 @@ public:
     QLabel *label_distance;
     QPushButton *pushButton_orderSelected;
     QLabel *label_orderSpecified;
-    QLabel *label_efficientOrder;
-    QPushButton *pushButton_efficientOrder;
     QTableView *tableView_trip;
     QWidget *advancedQuery_page;
     QPushButton *pushButton_home_4;
@@ -90,6 +88,7 @@ public:
     QLabel *label_Seating;
     QLabel *label_Open;
     QLineEdit *lineEdit_total;
+    QLabel *label_Grass;
     QLabel *backgroundField_label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -322,7 +321,7 @@ public:
         pushButton_home_6->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         comboBox_TeamNames = new QComboBox(trip_page);
         comboBox_TeamNames->setObjectName(QStringLiteral("comboBox_TeamNames"));
-        comboBox_TeamNames->setGeometry(QRect(30, 230, 291, 41));
+        comboBox_TeamNames->setGeometry(QRect(30, 230, 371, 41));
         comboBox_TeamNames->setFont(font1);
         comboBox_TeamNames->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_3 = new QLabel(trip_page);
@@ -330,7 +329,7 @@ public:
         label_3->setGeometry(QRect(30, 190, 301, 41));
         listWidget_stopList = new QListWidget(trip_page);
         listWidget_stopList->setObjectName(QStringLiteral("listWidget_stopList"));
-        listWidget_stopList->setGeometry(QRect(30, 280, 291, 331));
+        listWidget_stopList->setGeometry(QRect(30, 280, 371, 331));
         listWidget_stopList->setFont(font1);
         listWidget_stopList->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         listWidget_stopList->setFrameShape(QFrame::NoFrame);
@@ -341,13 +340,14 @@ public:
         label_mileage->setObjectName(QStringLiteral("label_mileage"));
         label_mileage->setGeometry(QRect(450, 40, 241, 41));
         label_mileage->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
+        label_mileage->setAlignment(Qt::AlignCenter);
         label_distance = new QLabel(trip_page);
         label_distance->setObjectName(QStringLiteral("label_distance"));
-        label_distance->setGeometry(QRect(450, 90, 241, 41));
+        label_distance->setGeometry(QRect(720, 620, 241, 41));
         label_distance->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         pushButton_orderSelected = new QPushButton(trip_page);
         pushButton_orderSelected->setObjectName(QStringLiteral("pushButton_orderSelected"));
-        pushButton_orderSelected->setGeometry(QRect(340, 230, 281, 111));
+        pushButton_orderSelected->setGeometry(QRect(410, 370, 281, 111));
         pushButton_orderSelected->setLayoutDirection(Qt::LeftToRight);
         pushButton_orderSelected->setAutoFillBackground(false);
         pushButton_orderSelected->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0);"));
@@ -357,45 +357,21 @@ public:
         pushButton_orderSelected->setIconSize(QSize(300, 300));
         label_orderSpecified = new QLabel(trip_page);
         label_orderSpecified->setObjectName(QStringLiteral("label_orderSpecified"));
-        label_orderSpecified->setGeometry(QRect(380, 250, 171, 40));
+        label_orderSpecified->setGeometry(QRect(450, 390, 171, 40));
         QFont font5;
         font5.setPointSize(17);
         font5.setBold(true);
         font5.setWeight(75);
         label_orderSpecified->setFont(font5);
         label_orderSpecified->setStyleSheet(QStringLiteral(""));
-        label_efficientOrder = new QLabel(trip_page);
-        label_efficientOrder->setObjectName(QStringLiteral("label_efficientOrder"));
-        label_efficientOrder->setGeometry(QRect(360, 520, 211, 40));
-        label_efficientOrder->setFont(font5);
-        label_efficientOrder->setStyleSheet(QStringLiteral(""));
-        pushButton_efficientOrder = new QPushButton(trip_page);
-        pushButton_efficientOrder->setObjectName(QStringLiteral("pushButton_efficientOrder"));
-        pushButton_efficientOrder->setGeometry(QRect(340, 500, 281, 111));
-        pushButton_efficientOrder->setLayoutDirection(Qt::LeftToRight);
-        pushButton_efficientOrder->setAutoFillBackground(false);
-        pushButton_efficientOrder->setStyleSheet(QStringLiteral("background: rgba(255, 255, 255, 0);"));
-        pushButton_efficientOrder->setIcon(icon2);
-        pushButton_efficientOrder->setIconSize(QSize(300, 300));
         tableView_trip = new QTableView(trip_page);
         tableView_trip->setObjectName(QStringLiteral("tableView_trip"));
-        tableView_trip->setGeometry(QRect(725, 50, 451, 561));
+        tableView_trip->setGeometry(QRect(720, 50, 455, 561));
         tableView_trip->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         tableView_trip->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableView_trip->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableView_trip->setShowGrid(false);
         stackedWidget->addWidget(trip_page);
-        pushButton_home_6->raise();
-        comboBox_TeamNames->raise();
-        label_3->raise();
-        listWidget_stopList->raise();
-        label_mileage->raise();
-        label_distance->raise();
-        pushButton_orderSelected->raise();
-        label_orderSpecified->raise();
-        pushButton_efficientOrder->raise();
-        label_efficientOrder->raise();
-        tableView_trip->raise();
         advancedQuery_page = new QWidget();
         advancedQuery_page->setObjectName(QStringLiteral("advancedQuery_page"));
         pushButton_home_4 = new QPushButton(advancedQuery_page);
@@ -471,7 +447,7 @@ public:
         pushButton_back->setStyleSheet(QStringLiteral("background: rgba(0, 0, 0, 127)"));
         label_Seating = new QLabel(advancedQueryResults_page);
         label_Seating->setObjectName(QStringLiteral("label_Seating"));
-        label_Seating->setGeometry(QRect(270, 10, 121, 21));
+        label_Seating->setGeometry(QRect(270, 10, 151, 21));
         label_Seating->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         label_Open = new QLabel(advancedQueryResults_page);
         label_Open->setObjectName(QStringLiteral("label_Open"));
@@ -479,9 +455,13 @@ public:
         label_Open->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         lineEdit_total = new QLineEdit(advancedQueryResults_page);
         lineEdit_total->setObjectName(QStringLiteral("lineEdit_total"));
-        lineEdit_total->setGeometry(QRect(402, 10, 91, 21));
+        lineEdit_total->setGeometry(QRect(430, 10, 91, 21));
         lineEdit_total->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         lineEdit_total->setReadOnly(true);
+        label_Grass = new QLabel(advancedQueryResults_page);
+        label_Grass->setObjectName(QStringLiteral("label_Grass"));
+        label_Grass->setGeometry(QRect(270, 10, 151, 21));
+        label_Grass->setStyleSheet(QStringLiteral("color: white; background: rgba(0, 0, 0, 127)"));
         stackedWidget->addWidget(advancedQueryResults_page);
         pushButton_home_5->raise();
         tableView_advancedQueryResults->raise();
@@ -489,6 +469,7 @@ public:
         label_Open->raise();
         lineEdit_total->raise();
         label_Seating->raise();
+        label_Grass->raise();
         backgroundField_label = new QLabel(centralWidget);
         backgroundField_label->setObjectName(QStringLiteral("backgroundField_label"));
         backgroundField_label->setGeometry(QRect(0, 0, 1196, 732));
@@ -513,7 +494,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(6);
         comboBox_TeamNames->setCurrentIndex(-1);
 
 
@@ -550,8 +531,6 @@ public:
         label_distance->setText(QApplication::translate("MainWindow", "Distance traveled: ", nullptr));
         pushButton_orderSelected->setText(QString());
         label_orderSpecified->setText(QApplication::translate("MainWindow", "Use order specified", nullptr));
-        label_efficientOrder->setText(QApplication::translate("MainWindow", "Use most efficient order", nullptr));
-        pushButton_efficientOrder->setText(QString());
         pushButton_home_4->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         backgroundLogo_label_3->setText(QString());
         label->setText(QApplication::translate("MainWindow", "Select Information Type", nullptr));
@@ -559,8 +538,9 @@ public:
         pushButton_QuerySelection->setText(QApplication::translate("MainWindow", "Query", nullptr));
         pushButton_home_5->setText(QApplication::translate("MainWindow", "HOME", nullptr));
         pushButton_back->setText(QApplication::translate("MainWindow", "BACK", nullptr));
-        label_Seating->setText(QApplication::translate("MainWindow", "Total Seating Capqacity:", nullptr));
+        label_Seating->setText(QApplication::translate("MainWindow", "Total Seating Capacity:", nullptr));
         label_Open->setText(QApplication::translate("MainWindow", "Total Open Stadiums:", nullptr));
+        label_Grass->setText(QApplication::translate("MainWindow", "Total Bermuda Grass:", nullptr));
         backgroundField_label->setText(QString());
     } // retranslateUi
 

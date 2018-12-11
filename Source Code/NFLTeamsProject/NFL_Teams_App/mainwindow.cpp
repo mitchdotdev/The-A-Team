@@ -97,6 +97,7 @@ void MainWindow::on_pushButton_Stadiums_clicked()
     ui->tableView_Stadiums->setSortingEnabled(true);
 }
 
+
 void MainWindow::on_pushButton_TeamInfo_clicked()
 {
     populateTeamDropdown();
@@ -218,6 +219,7 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
     ui->lineEdit_total->hide();
     ui->label_Open->hide();
     ui->label_Seating->hide();
+    ui->label_Grass->hide();
 
     QStringList checkedData;
 
@@ -272,6 +274,24 @@ void MainWindow::on_pushButton_QuerySelection_clicked()
 
         ui->lineEdit_total->insert(model1->record(0).value(0).toString());
     }
+    else if(checkedData.at(0) == "Bermuda Grass"){
+        ui->lineEdit_total->show();
+        ui->label_Grass->show();
+        ui->stackedWidget->setCurrentIndex(6);
+        QSqlQueryModel* model = new QSqlQueryModel;
+        QSqlQueryModel* model1 = new QSqlQueryModel;
+
+        model->setQuery("SELECT TeamName, SurfaceType FROM TeamInfo WHERE SurfaceType = 'Bermuda Grass' ORDER BY TeamName");
+        model1->setQuery("SELECT count(distinct StadiumName) FROM TeamInfo WHERE SurfaceType = 'Bermuda Grass'");
+
+        ui->tableView_advancedQueryResults->setModel(model);
+        ui->tableView_advancedQueryResults->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+        ui->tableView_advancedQueryResults->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+        ui->tableView_advancedQueryResults->setSortingEnabled(true);
+
+        ui->lineEdit_total->insert(model1->record(0).value(0).toString());
+
+    }
     else
     {
         ui->stackedWidget->setCurrentIndex(6);
@@ -307,10 +327,11 @@ void MainWindow::on_pushButton_PlanTrip_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
     ui->listWidget_stopList->clear();
+    ui->label_distance->clear();
     ui->comboBox_TeamNames->clear();
 
     QSqlQuery query;
-    query.exec("SELECT TeamName "
+    query.exec("SELECT DISTINCT StadiumName "
                "FROM TeamInfo");
     while(query.next())
         ui->comboBox_TeamNames->addItem(query.value(0).toString());
@@ -366,60 +387,8 @@ void MainWindow::on_pushButton_3_clicked()
     while(query.next())
         g.addEdge(Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
 
-    g.dijkstra(g.findVertexPosition("Heinz Field"));
+    g.dijkstra(g.findVertexPosition("Heinz Field"), -1);
     g.primMST();
-
-//    const QString CITIES[] = {"Atlanta", "Boston", "Chicago", "Dallas", "Denver", "Houston", "Kansas City", "Los Angeles", "New York", "San Francisco", "Seattle"};
-//    Graph <QString, int> map(12);
-
-//    map.addVertex((QString)"Atlanta");
-//    map.addVertex((QString)"Boston");
-//    map.addVertex((QString)"Chicago");
-//    map.addVertex((QString)"Dallas");
-//    map.addVertex((QString)"Denver");
-//    map.addVertex((QString)"Houston");
-//    map.addVertex((QString)"Kansas City");
-//    map.addVertex((QString)"Los Angeles");
-//    map.addVertex((QString)"Miami");
-//    map.addVertex((QString)"New York");
-//    map.addVertex((QString)"San Francisco");
-//    map.addVertex((QString)"Seattle");
-
-//    map.addEdge(Edge<QString, int>("Seattle", "San Francisco", 807));
-//    map.addEdge(Edge<QString, int>("Seattle", "Denver", 1331));
-//    map.addEdge(Edge<QString, int>("Seattle", "Chicago", 2097));
-
-//    map.addEdge(Edge<QString, int>("San Francisco", "Denver", 1267));
-//    map.addEdge(Edge<QString, int>("San Francisco", "Los Angeles", 381));
-
-//    map.addEdge(Edge<QString, int>("Los Angeles", "Denver", 1015));
-//    map.addEdge(Edge<QString, int>("Los Angeles", "Kansas City", 1663));
-//    map.addEdge(Edge<QString, int>("Los Angeles", "Dallas", 1435));
-
-//    map.addEdge(Edge<QString, int>("Denver", "Kansas City", 599));
-//    map.addEdge(Edge<QString, int>("Denver", "Chicago", 1003));
-
-//    map.addEdge(Edge<QString, int>("Kansas City", "Chicago", 533));
-//    map.addEdge(Edge<QString, int>("Kansas City", "Dallas", 496));
-//    map.addEdge(Edge<QString, int>("Kansas City", "Atlanta", 864));
-//    map.addEdge(Edge<QString, int>("Kansas City", "New York", 1260));
-
-//    map.addEdge(Edge<QString, int>("Dallas", "Atlanta", 781));
-//    map.addEdge(Edge<QString, int>("Dallas", "Houston", 239));
-
-//    map.addEdge(Edge<QString, int>("Chicago", "Boston", 983));
-//    map.addEdge(Edge<QString, int>("Chicago", "New York", 787));
-
-//    map.addEdge(Edge<QString, int>("New York", "Boston", 214));
-//    map.addEdge(Edge<QString, int>("New York", "Atlanta", 888));
-
-//    map.addEdge(Edge<QString, int>("Atlanta", "Houston", 810));
-//    map.addEdge(Edge<QString, int>("Atlanta", "Miami", 661));
-
-//    map.addEdge(Edge<QString, int>("Miami", "Houston", 1187));
-
-//    map.dijkstra(map.findVertexPosition("Atlanta"));
-//    map.primMST();
 }
 
 void MainWindow::on_comboBox_TeamNames_currentTextChanged(const QString &arg1)
@@ -428,9 +397,9 @@ void MainWindow::on_comboBox_TeamNames_currentTextChanged(const QString &arg1)
     ui->listWidget_stopList->show();
 
     Trips t;
-    QStringList teamNames = t.addStopsList( arg1 );
-    for(int i = 0; i < teamNames.size(); ++i)
-        ui->listWidget_stopList->addItem( teamNames.at(i) );
+    QStringList stadiumName = t.addStopsList( arg1 );
+    for(int i = 0; i < stadiumName.size(); ++i)
+        ui->listWidget_stopList->addItem( stadiumName.at(i) );
 
     Map<QString>::instance().clearContents();
     Map<QString>::instance().insertNode(Map<QString>::instance().getSize(), arg1);
@@ -488,6 +457,73 @@ void MainWindow::on_comboBox_SouvenirDropDown_currentIndexChanged(const QString 
 void MainWindow::on_pushButton_orderSelected_clicked()
 {
     Map<QString>::instance().print();
-    Map<QString>::instance().clearContents();
     ui->listWidget_stopList->clear();
+    ui->label_distance->clear();
+
+
+
+    QVector<QString> vertices;
+    QSqlQuery query;
+
+    query.exec("SELECT DISTINCT BeginningStadium "
+               "FROM Distances");
+    while(query.next())
+        vertices.push_back(query.value(0).toString());
+
+    // Creates graph object with the size of the vertices
+    Graph<QString, int> g(vertices.size());
+
+    // Populates the graphs vertices
+    for(int i = 0; i < vertices.size(); ++i)
+        g.addVertex(Vertex<QString>(vertices.at(i)));
+
+    query.exec("SELECT BeginningStadium, EndingStadium, Distance "
+               "FROM Distances");
+    while(query.next())
+        g.addEdge(Edge<QString, int>(query.value(0).toString(), query.value(1).toString(), query.value(2).toInt()));
+
+
+    QSqlQuery q;
+    int distance = 0;
+
+    q.exec("CREATE TABLE IF NOT EXISTS temp( Stadium TEXT)");
+    int index = 0;
+    q.prepare("INSERT INTO temp(Stadium) "
+              "VALUES(:stad)");
+    int j = 0;
+    bool kys = false;
+    while( index < Map<QString>::instance().getSize() )
+    {
+        if( !Map<QString>::instance().mapTable()[index].isEmpty() )
+        {
+            qDebug() << Map<QString>::instance().mapTable()[index].getKey() << " - " << Map<QString>::instance().mapTable()[index].getValue();
+            q.bindValue(":stad", Map<QString>::instance().mapTable().at(index).getValue());
+            q.exec();
+            if(!kys)
+            {
+                j = index;
+                kys = true;
+            }
+            else
+            {
+                distance += g.dijkstra(g.findVertexPosition(Map<QString>::instance().mapTable()[j].getValue()), g.findVertexPosition(Map<QString>::instance().mapTable()[index].getValue()));
+                j = index;
+            }
+
+        }
+        ++index;
+    }
+
+    QSqlQueryModel* mod = new QSqlQueryModel;
+    q.exec("SELECT * FROM temp");
+    mod->setQuery(q);
+    ui->tableView_trip->setModel(mod);
+
+
+    q.exec("DROP TABLE temp");
+    Map<QString>::instance().clearContents();
+
+    QString out = QString("Distance Traveled: %1").arg(distance);
+
+    ui->label_distance->setText(out);
 }

@@ -216,7 +216,7 @@ public:
     /*
      * Algorithms
      */
-    void dijkstra(int);
+    int dijkstra(int, int);
     int primMST();
 };
 
@@ -340,7 +340,7 @@ void Graph<T,W>::displayEdges() const
 
 // Performs Dijkstra's algorithm over all of the nodes
 template <typename T, typename W>
-void Graph<T,W>::dijkstra(int start)
+int Graph<T,W>::dijkstra(int start, int end)
 {
     int costs[numOfVertices];
     QVector< Edge<T,W> > edgesTaken;
@@ -380,16 +380,23 @@ void Graph<T,W>::dijkstra(int start)
     }
 
    printDijkstra(costs, start);
+
+   if(end != -1)
+   {
+      int index = end;
+      int dist = 0;
+      for(int i = 0; i < numOfVertices; ++i)
+      {
+          if(vertices[i].getElement() == vertices[index].getElement())
+              dist = costs[i];
+      }
+         return dist;
+   }
+   else
+       return 0;
+
    edgesTaken.clear();
    visitedPaths.clear();
-
-//   qDebug() << "\nPaths Taken\n___________???";
-//    for(int i = numOfVertices-1; i > -1; --i)
-//        for(int j = numOfVertices-1; j > -1; --j)
-//            //if(visitedPaths[i][j].getBegin() != "")
-//                qDebug() << visitedPaths[i][j].getBegin() << " -> "
-//                         << visitedPaths[i][j].getEnd()   << "  --  " << visitedPaths[i][j].getWeight();
-
 }
 
 // Prints the result of Dijkstra's algorithm

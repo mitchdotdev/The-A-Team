@@ -2,14 +2,14 @@
 
 Trips::Trips() { }
 
-QStringList Trips::addStopsList(QString bTeam)
+QStringList Trips::addStopsList(QString stadiumName)
 {
     QStringList teamNames;
     QSqlQuery query;
-    query.prepare("SELECT TeamName "
+    query.prepare("SELECT DISTINCT StadiumName "
                   "FROM TeamInfo "
-                  "WHERE TeamName != :bTeam");
-    query.bindValue(":bTeam", bTeam);
+                  "WHERE StadiumName != :stadiumName");
+    query.bindValue(":stadiumName", stadiumName);
     query.exec();
 
     while( query.next() )
