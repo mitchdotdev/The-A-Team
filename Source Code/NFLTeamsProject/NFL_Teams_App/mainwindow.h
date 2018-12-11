@@ -26,6 +26,8 @@ class MainWindow : public QMainWindow
     Ui::MainWindow *ui;
 
     void populateTeamDropdown();
+    void populateSTeamDropdown();
+    void populateS2TeamDropdown();
     void populateAllTeamInfo(const QString&);
     template <class Type>
     void freeAllocatedMemory(Type *pointer);
@@ -33,9 +35,12 @@ class MainWindow : public QMainWindow
     conferenceView dbQuery;
     int numberOfTeams;
     int numberOfColumns;
+    int count;
     QSqlTableModel *allTeamInfoTable;
     QSqlTableModel *stadiumsTable;
     QSqlTableModel *advancedQueryTable;
+    QSqlTableModel *souvenirTable;
+    QSqlTableModel *editTable;
     CurrentSortMethod teamInfoTableMethod;
     CurrentSortMethod stadiumTableMethod;
 public:
@@ -49,6 +54,8 @@ private slots:
     void on_pushButton_home_4_clicked();
     void on_pushButton_home_5_clicked();
     void on_pushButton_home_6_clicked();
+    void on_pushButton_home_7_clicked();
+    void on_pushButton_home_8_clicked();
 
     void on_pushButton_viewConferences_clicked();
     void on_pushButton_viewAFC_clicked();
@@ -69,6 +76,16 @@ private slots:
     void on_pushButton_back_clicked();
     void on_pushButton_QuerySelection_clicked();
 
+    void on_pushButton_Edit_clicked();
+    void on_pushButton_Souvenirs_clicked();
+    void on_pushButton_Login_clicked();
+    void on_pushButton_Souvenir_clicked();
+    void on_pushButton_Delete_clicked();
+    void on_pushButton_Add_clicked();
+    void on_pushButton_Modify_clicked();
+    void on_pushButton_AddTeam_clicked();
+    void on_comboBox_teamSouvenirs_currentIndexChanged(const QString &selectedTeam);
+
     void on_pushButton_3_clicked();
 
     void on_pushButton_PlanTrip_clicked();
@@ -76,6 +93,8 @@ private slots:
     void on_listWidget_stopList_itemClicked(QListWidgetItem *item);
 
     void on_pushButton_orderSelected_clicked();
+    void on_pushButton_home_9_clicked();
+    void on_pushButton_Edit_2_clicked();
 };
 template <class Type>
 void MainWindow::freeAllocatedMemory(Type *pointer)
